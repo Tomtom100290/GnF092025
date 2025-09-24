@@ -1,3 +1,7 @@
 body {
     background-color: skyblue;
 }
+/* Perosnnalisation Tailwind */
+.bg-dark , .bg-gray{
+    background-color: aqua;
+}

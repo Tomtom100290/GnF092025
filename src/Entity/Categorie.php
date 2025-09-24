@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CategorieRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -25,6 +27,17 @@ class Categorie
 
     #[ORM\Column]
     private ?bool $topActif = null;
+
+    /**
+     * @var Collection<int, Produit>
+     */
+    #[ORM\OneToMany(targetEntity: Produit::class, mappedBy: 'fkCategorieProduit')]
+    private Collection $produits;
+
+    public function __construct()
+    {
+        $this->produits = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -75,6 +88,36 @@ class Categorie
     public function setTopActif(bool $topActif): static
     {
         $this->topActif = $topActif;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Produit>
+     */
+    public function getProduits(): Collection
+    {
+        return $this->produits;
+    }
+
+    public function addProduit(Produit $produit): static
+    {
+        if (!$this->produits->contains($produit)) {
+            $this->produits->add($produit);
+            $produit->setFkCategorieProduit($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduit(Produit $produit): static
+    {
+        if ($this->produits->removeElement($produit)) {
+            // set the owning side to null (unless already changed)
+            if ($produit->getFkCategorieProduit() === $this) {
+                $produit->setFkCategorieProduit(null);
+            }
+        }
 
         return $this;
     }

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProduitRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -36,6 +38,20 @@ class Produit
 
     #[ORM\Column]
     private ?bool $topActif = null;
+
+    #[ORM\ManyToOne(inversedBy: 'produits')]
+    private ?categorie $fkCategorieProduit = null;
+
+    /**
+     * @var Collection<int, tag>
+     */
+    #[ORM\ManyToMany(targetEntity: tag::class, inversedBy: 'produits')]
+    private Collection $fkTagProduit;
+
+    public function __construct()
+    {
+        $this->fkTagProduit = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -124,6 +140,42 @@ class Produit
     public function setTopActif(bool $topActif): static
     {
         $this->topActif = $topActif;
+
+        return $this;
+    }
+
+    public function getFkCategorieProduit(): ?categorie
+    {
+        return $this->fkCategorieProduit;
+    }
+
+    public function setFkCategorieProduit(?categorie $fkCategorieProduit): static
+    {
+        $this->fkCategorieProduit = $fkCategorieProduit;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, tag>
+     */
+    public function getFkTagProduit(): Collection
+    {
+        return $this->fkTagProduit;
+    }
+
+    public function addFkTagProduit(tag $fkTagProduit): static
+    {
+        if (!$this->fkTagProduit->contains($fkTagProduit)) {
+            $this->fkTagProduit->add($fkTagProduit);
+        }
+
+        return $this;
+    }
+
+    public function removeFkTagProduit(tag $fkTagProduit): static
+    {
+        $this->fkTagProduit->removeElement($fkTagProduit);
 
         return $this;
     }
