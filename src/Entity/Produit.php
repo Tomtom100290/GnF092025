@@ -26,14 +26,10 @@ class Produit
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
     private ?\DateTime $dlc = null;
 
-    #[ORM\Column(length: 50, nullable: true)]
-    private ?string $tag = null;
 
     #[ORM\Column(length: 100)]
     private ?string $NumLot = null;
 
-    #[ORM\Column(length: 50)]
-    private ?string $Categorie = null;
 
     #[ORM\Column(type: Types::DATE_IMMUTABLE)]
     private ?\DateTimeImmutable $dateCreation = null;
@@ -94,17 +90,6 @@ class Produit
         return $this;
     }
 
-    public function getTag(): ?string
-    {
-        return $this->tag;
-    }
-
-    public function setTag(?string $tag): static
-    {
-        $this->tag = $tag;
-
-        return $this;
-    }
 
     public function getNumLot(): ?string
     {
@@ -118,18 +103,7 @@ class Produit
         return $this;
     }
 
-    public function getCategorie(): ?string
-    {
-        return $this->Categorie;
-    }
-
-    public function setCategorie(string $Categorie): static
-    {
-        $this->Categorie = $Categorie;
-
-        return $this;
-    }
-
+    
     public function getDateCreation(): ?\DateTimeImmutable
     {
         return $this->dateCreation;
