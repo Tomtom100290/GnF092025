@@ -1,4 +1,10 @@
-body {
+/* Reset de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ody {
     background-color: skyblue;
 }
 /* Perosnnalisation Tailwind */
@@ -8,4 +14,8 @@ body {
 }
 .listMenu{
      background-color: aqua;
+}
+header{
+    background-color: black;
+    height: 100vh;
 }
