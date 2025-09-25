@@ -2,6 +2,10 @@ body {
     background-color: skyblue;
 }
 /* Perosnnalisation Tailwind */
-.bg-dark , .bg-gray{
+.bg-dark {
+    /*bg navbar*/
     background-color: aqua;
+}
+.listMenu{
+     background-color: aqua;
 }
