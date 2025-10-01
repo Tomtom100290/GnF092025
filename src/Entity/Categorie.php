@@ -68,6 +68,10 @@ class Categorie
 
         return $this;
     }
+    public function __toString(): string
+    {
+        return $this->nom ?? '';
+    }
 
     public function getDescription(): ?string
     {
@@ -154,8 +158,7 @@ class Categorie
 
     public function setCodeCategorie(string $codeCategorie): static
     {
-        $this->codeCategorie = $codeCategorie;
-
-        return $this;
+        $this->codeCategorie = $codeCategorie ? strtoupper($codeCategorie) : null;
+    return $this;
     }
 }

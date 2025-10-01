@@ -24,6 +24,13 @@ class CategorieCrudController extends AbstractCrudController
             
             TextField::new('nom'),
             TextareaField::new('description'),
+            TextField::new('slug'),
+            TextField::new('codecategorie')->setFormTypeOption('attr', [
+            'maxlength' => 3,                // Limite de 3 caractères
+            'style' => 'text-transform: uppercase', // Forçage visuel des majuscules
+            //'pattern' => '[A-Z]{3}',         // Validation HTML5 : 3 lettres majuscules
+            'title' => 'Utiliser uniquement 3 lettres majuscules',
+            ])->setLabel('Code Catégorie'),
             BooleanField::new('topActif')->setLabel('Activé'),
         ];
     }

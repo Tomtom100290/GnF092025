@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ClientRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 #[ORM\HasLifecycleCallbacks]
 #[ORM\Entity(repositoryClass: ClientRepository::class)]
@@ -37,7 +38,7 @@ class Client
     #[ORM\Column(length: 100, nullable: true)]
     private ?string $Ville = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: Types::DATE_IMMUTABLE)]
     private ?\DateTimeImmutable $dateCreation = null;
     #[ORM\PrePersist]
     public function setDateDeCreation(): void

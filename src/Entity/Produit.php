@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-
+#[ORM\HasLifecycleCallbacks]
 #[ORM\Entity(repositoryClass: ProduitRepository::class)]
 class Produit
 {
@@ -35,6 +35,13 @@ class Produit
 
     #[ORM\Column(type: Types::DATE_IMMUTABLE)]
     private ?\DateTimeImmutable $dateCreation = null;
+    #[ORM\PrePersist]
+     public function setDateDeCreation(): void
+    {
+        if ($this->dateCreation === null) {
+            $this->dateCreation = new \DateTimeImmutable();
+        }
+    }
 
     #[ORM\Column]
     private ?bool $topActif = null;
@@ -55,7 +62,7 @@ class Produit
     {
         $this->fkTagProduit = new ArrayCollection();
     }
-
+   
     public function getId(): ?int
     {
         return $this->id;

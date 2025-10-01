@@ -23,11 +23,12 @@ class ProduitCrudController extends AbstractCrudController
         return [
             
             TextField::new('Libelle'),
+            TextField::new('slug'),
             TextareaField::new('Description'),
             DateField::new('DateAchat')->setLabel('Date d\'achat'),
             DateField::new('Dlc')->setLabel('DLC'),
             TextField::new('NumLot')->setLabel('Numéro de lot'),
-           // AssociationField::new('categorie')->setLabel('Catégorie'),
+            AssociationField::new('fkCategorieProduit')->setLabel('Catégorie'),
             BooleanField::new('topActif')->setLabel('Activé'),
         ];
     }
