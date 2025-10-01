@@ -43,10 +43,13 @@ class Produit
     private ?categorie $fkCategorieProduit = null;
 
     /**
-     * @var Collection<int, tag>
+     * @var Collection<int, Tag>
      */
-    #[ORM\ManyToMany(targetEntity: tag::class, inversedBy: 'produits')]
+    #[ORM\ManyToMany(targetEntity: Tag::class, inversedBy: 'produits')]
     private Collection $fkTagProduit;
+
+    #[ORM\Column(length: 30)]
+    private ?string $slug = null;
 
     public function __construct()
     {
@@ -176,6 +179,18 @@ class Produit
     public function removeFkTagProduit(tag $fkTagProduit): static
     {
         $this->fkTagProduit->removeElement($fkTagProduit);
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
 
         return $this;
     }

@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ClientRepository;
 use Doctrine\ORM\Mapping as ORM;
-
+#[ORM\HasLifecycleCallbacks]
 #[ORM\Entity(repositoryClass: ClientRepository::class)]
 class Client
 {
@@ -39,6 +39,13 @@ class Client
 
     #[ORM\Column]
     private ?\DateTimeImmutable $dateCreation = null;
+    #[ORM\PrePersist]
+    public function setDateDeCreation(): void
+    {
+        if ($this->dateCreation === null) {
+            $this->dateCreation = new \DateTimeImmutable();
+        }
+    }
 
     #[ORM\Column]
     private ?bool $topActif = null;
@@ -143,6 +150,7 @@ class Client
 
         return $this;
     }
+
 
     public function getDateCreation(): ?\DateTimeImmutable
     {

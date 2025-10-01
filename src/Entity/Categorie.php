@@ -7,8 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-
-#[ORM\Entity(repositoryClass: categorieRepository::class)]
+#[ORM\HasLifecycleCallbacks]
+#[ORM\Entity(repositoryClass: CategorieRepository::class)]
 class Categorie
 {
     #[ORM\Id]
@@ -25,6 +25,13 @@ class Categorie
     #[ORM\Column(type: Types::DATE_IMMUTABLE)]
     private ?\DateTimeImmutable $dateCreation = null;
 
+    #[ORM\PrePersist]
+    public function setDateDeCreation(): void
+    {
+        if ($this->dateCreation === null) {
+            $this->dateCreation = new \DateTimeImmutable();
+        }
+    }
     #[ORM\Column]
     private ?bool $topActif = null;
 
@@ -33,6 +40,12 @@ class Categorie
      */
     #[ORM\OneToMany(targetEntity: Produit::class, mappedBy: 'fkCategorieProduit')]
     private Collection $produits;
+
+    #[ORM\Column(length: 30)]
+    private ?string $slug = null;
+
+    #[ORM\Column(length: 3)]
+    private ?string $codeCategorie = null;
 
     public function __construct()
     {
@@ -118,6 +131,30 @@ class Categorie
                 $produit->setFkCategorieProduit(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getCodeCategorie(): ?string
+    {
+        return $this->codeCategorie;
+    }
+
+    public function setCodeCategorie(string $codeCategorie): static
+    {
+        $this->codeCategorie = $codeCategorie;
 
         return $this;
     }
