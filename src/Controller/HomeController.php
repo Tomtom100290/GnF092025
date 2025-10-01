@@ -15,7 +15,7 @@ final class HomeController extends AbstractController
         $produits = $produitRepository->findAll();
         
         return $this->render('home/index.html.twig', [
-            'produits' => '$produits',
+            'produits' => $produits,
         ]);
     }
 }

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cadeaux des invités{% endblock %}
+
+{% block body %}
+
+
+
+    
+ {% for cadeau in cadeaux %}
+            <h1>{{cadeau.h1}}</h1>
+            <h2>{{cadeau.h2}}</h2>
+            <p>{{cadeau.paragraphe}}</p>
+        {% else %}
+            <li>Aucun produit trouvé.</li>
+        {% endfor %}
+{% endblock %}
