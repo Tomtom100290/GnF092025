@@ -35,11 +35,11 @@
     <div class="ProduitList">
         {% for produit in produits %}
             <div class="cardProd">
-                <div class="ImgProduit">image</div>
+                <div class="ImgProduit"><img src="{{ asset('{{ produit.img }}') }}"></div>
                 <div class="TitreProduit">{{ produit.libelle }}</div>
                 <div class="DescripProduit">{{ produit.description }}</div>
                 <div class="InfoProduit">
-                    <span class="Prx">1.50€</span>
+                    <span class="Prx">{{ produit.prix }}<strong> €</strong></span>
                     <button class="voir">Voir</button>
                 </div>
             </div>

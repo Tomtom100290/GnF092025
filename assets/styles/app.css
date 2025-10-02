@@ -10,14 +10,15 @@ body {
 /* Perosnnalisation Tailwind */
 .bg-dark {
     /*bg navbar*/
-    background-color: aqua;
+    background-color:rgb(112, 135, 145);
 }
 .listMenu{
-     background-color: aqua;
+     background-color:rgb(112, 135, 145);
 }
 header{
     background-color: black;
     height: 100vh;
+    margin-bottom: 68px;
 }
 h1 {
     font-size: 3rem !important;  /* ou 32px */
@@ -77,8 +78,8 @@ margin-bottom: 24px;
 
 .cardProd {
   width: 235px;
-  min-height: 300px;
-  max-height: 400px;
+  
+  height: 400px;
   border: 1px solid rgb(223, 223, 223);
   box-shadow: 2px 2px 8px 2px #6565655c;
   border-radius: 5px;
@@ -88,6 +89,7 @@ margin-bottom: 24px;
   -o-border-radius: 5px;
   margin: 16px ;
   padding: 8px;
+  position: relative;
 }
 
 .ImgProduit {
@@ -104,12 +106,19 @@ margin-bottom: 24px;
 
 .DescripProduit {
   margin: 8px auto;
+  margin-bottom: 2px;
+  height: 110px;
+  
 }
 
 .InfoProduit {
   margin: 10px auto;
   display: flex;
   justify-content: space-between;
+   margin-top: auto;
+   flex-grow: 1;
+  
+  
 }
 
 /*--FOOTER---*/
@@ -135,4 +144,7 @@ footer {
   background-color: rgb(177, 193, 201);
   padding-top: 48px;
   padding-bottom: 24px;
+}
+.Prx{
+    font-weight: bold;
 }
