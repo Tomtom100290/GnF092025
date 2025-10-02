@@ -40,4 +40,13 @@ class ProduitRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+    public function findProduitsFriandises(): array
+{
+    return $this->createQueryBuilder('p')
+        ->join('p.fkCategorieProduit', 'c')
+        ->where('c.nom = :nom')
+        ->setParameter('nom', 'Friandise')
+        ->getQuery()
+        ->getResult();
+}
 }

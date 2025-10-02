@@ -3,15 +3,49 @@
 {% block title %}Cadeaux des invités{% endblock %}
 
 {% block body %}
-
-
-
-    
- {% for cadeau in cadeaux %}
+{% block anim %}Friandise Test{% endblock %}
+<!-- Entête-->
+    <div class="Entete">
+        <div class="paraEnt">
+             {% for cadeau in cadeaux %}
             <h1>{{cadeau.h1}}</h1>
             <h2>{{cadeau.h2}}</h2>
-            <p>{{cadeau.paragraphe}}</p>
-        {% else %}
+            
+               {% else %}
             <li>Aucun produit trouvé.</li>
         {% endfor %}
+
+        </div>
+        <div class="ImgEnt">
+            {% for cadeau in cadeaux %}
+            <p>{{cadeau.paragraphe}}</p>
+            <div class="ImgL">{{cadeau.img}}</div>
+            {% endfor %}
+            <!--<div class="ImgBC">
+                <div class="ImgB">img B</div>
+                <div class="ImgC">img C</div>
+            </div>-->
+        </div>
+    </div>
+<!---->
+
+
+<div class="BlocProduits">
+    <h2>Un large choix de produits à personnaliser</h2>
+    <div class="ProduitList">
+        {% for produit in produits %}
+            <div class="cardProd">
+                <div class="ImgProduit">image</div>
+                <div class="TitreProduit">{{ produit.libelle }}</div>
+                <div class="DescripProduit">{{ produit.description }}</div>
+                <div class="InfoProduit">
+                    <span class="Prx">1.50€</span>
+                    <button class="voir">Voir</button>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+ 
 {% endblock %}

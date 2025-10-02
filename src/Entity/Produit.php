@@ -58,6 +58,12 @@ class Produit
     #[ORM\Column(length: 30)]
     private ?string $slug = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?float $prix = null;
+
+   /* #[ORM\Column(length: 255)]
+    private ?string $illustration = null;*/
+
     public function __construct()
     {
         $this->fkTagProduit = new ArrayCollection();
@@ -201,4 +207,28 @@ class Produit
 
         return $this;
     }
+
+   /* public function getIllustration(): ?string
+    {
+        return $this->illustration;
+    }
+
+    public function setIllustration(string $illustration): static
+    {
+        $this->illustration = $illustration;
+
+        return $this;
+    }*/
+
+   public function getPrix(): ?float
+   {
+       return $this->prix;
+   }
+
+   public function setPrix(?float $prix): static
+   {
+       $this->prix = $prix;
+
+       return $this;
+   }
 }
