@@ -36,10 +36,10 @@ class Categorie
     private ?bool $topActif = null;
 
     /**
-     * @var Collection<int, Produit>
+     * @var Collection<int, TypeProduit>
      */
-    #[ORM\OneToMany(targetEntity: Produit::class, mappedBy: 'fkCategorieProduit')]
-    private Collection $produits;
+    #[ORM\OneToMany(targetEntity: TypeProduit::class, mappedBy: 'fkCategorieProduit')]
+    private Collection $Typeproduits;
 
     #[ORM\Column(length: 30)]
     private ?string $slug = null;
@@ -49,7 +49,7 @@ class Categorie
 
     public function __construct()
     {
-        $this->produits = new ArrayCollection();
+        $this->Typeproduits = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -110,29 +110,29 @@ class Categorie
     }
 
     /**
-     * @return Collection<int, Produit>
+     * @return Collection<int, TypeProduit>
      */
-    public function getProduits(): Collection
+    public function getTypeProduits(): Collection
     {
-        return $this->produits;
+        return $this->Typeproduits;
     }
 
-    public function addProduit(Produit $produit): static
+    public function addTypeProduit(TypeProduit $Typeproduit): static
     {
-        if (!$this->produits->contains($produit)) {
-            $this->produits->add($produit);
-            $produit->setFkCategorieProduit($this);
+        if (!$this->Typeproduits->contains($Typeproduit)) {
+            $this->Typeproduits->add($Typeproduit);
+            $Typeproduit->setFkCategorieProduit($this);
         }
 
         return $this;
     }
 
-    public function removeProduit(Produit $produit): static
+    public function removeProduit(TypeProduit $Typeproduit): static
     {
-        if ($this->produits->removeElement($produit)) {
+        if ($this->Typeproduits->removeElement($Typeproduit)) {
             // set the owning side to null (unless already changed)
-            if ($produit->getFkCategorieProduit() === $this) {
-                $produit->setFkCategorieProduit(null);
+            if ($Typeproduit->getFkCategorieProduit() === $this) {
+                $Typeproduit->setFkCategorieProduit(null);
             }
         }
 

@@ -25,14 +25,14 @@ class Tag
     private ?string $codeTag = null;
 
     /**
-     * @var Collection<int, Produit>
+     * @var Collection<int, TypeProduit>
      */
-    #[ORM\ManyToMany(targetEntity: Produit::class, mappedBy: 'fkTagProduit')]
-    private Collection $produits;
+    #[ORM\ManyToMany(targetEntity: TypeProduit::class, mappedBy: 'fkTagProduit')]
+    private Collection $Typeproduits;
 
     public function __construct()
     {
-        $this->produits = new ArrayCollection();
+        $this->Typeproduits = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -77,27 +77,27 @@ class Tag
     }
 
     /**
-     * @return Collection<int, Produit>
+     * @return Collection<int, TypeProduit>
      */
     public function getProduits(): Collection
     {
-        return $this->produits;
+        return $this->Typeproduits;
     }
 
-    public function addProduit(Produit $produit): static
+    public function addProduit(TypeProduit $Typeproduit): static
     {
-        if (!$this->produits->contains($produit)) {
-            $this->produits->add($produit);
-            $produit->addFkTagProduit($this);
+        if (!$this->Typeproduits->contains($Typeproduit)) {
+            $this->Typeproduits->add($Typeproduit);
+            $Typeproduit->addFkTagProduit($this);
         }
 
         return $this;
     }
 
-    public function removeProduit(Produit $produit): static
+    public function removeProduit(TypeProduit $Typeproduit): static
     {
-        if ($this->produits->removeElement($produit)) {
-            $produit->removeFkTagProduit($this);
+        if ($this->Typeproduits->removeElement($Typeproduit)) {
+            $Typeproduit->removeFkTagProduit($this);
         }
 
         return $this;

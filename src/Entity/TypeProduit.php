@@ -2,16 +2,17 @@
 
 namespace App\Entity;
 
-use App\Repository\ProduitRepository;
+use App\Repository\TypeProduitRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich; 
 #[ORM\HasLifecycleCallbacks]
-#[ORM\Entity(repositoryClass: ProduitRepository::class)]
+#[ORM\Entity(repositoryClass: TypeProduitRepository::class)]
 #[Vich\Uploadable]
-class Produit
+class TypeProduit
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -24,15 +25,15 @@ class Produit
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTime $dateAchat = null;
+    //#[ORM\Column(type: Types::DATE_MUTABLE)]
+    //private ?\DateTime $dateAchat = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
-    private ?\DateTime $dlc = null;
+    //#[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    //private ?\DateTime $dlc = null;
 
 
-    #[ORM\Column(length: 100)]
-    private ?string $NumLot = null;
+    //#[ORM\Column(length: 100)]
+    //private ?string $NumLot = null;
 
 
     #[ORM\Column(type: Types::DATE_IMMUTABLE)]
@@ -48,13 +49,13 @@ class Produit
     #[ORM\Column]
     private ?bool $topActif = null;
 
-    #[ORM\ManyToOne(inversedBy: 'produits')]
+    #[ORM\ManyToOne(inversedBy: 'Typeproduits')]
     private ?categorie $fkCategorieProduit = null;
 
     /**
      * @var Collection<int, Tag>
      */
-    #[ORM\ManyToMany(targetEntity: Tag::class, inversedBy: 'produits')]
+    #[ORM\ManyToMany(targetEntity: Tag::class, inversedBy: 'Typeproduits')]
     private Collection $fkTagProduit;
 
     #[ORM\Column(length: 30)]
@@ -63,8 +64,8 @@ class Produit
     #[ORM\Column(nullable: true)]
     private ?float $prix = null;
 
-   /* #[ORM\Column(length: 255)]
-    private ?string $illustration = null;*/
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $illustration = null;
 
     public function __construct()
     {
@@ -100,7 +101,7 @@ class Produit
         return $this;
     }
 
-    public function getDateAchat(): ?\DateTime
+    /*public function getDateAchat(): ?\DateTime
     {
         return $this->dateAchat;
     }
@@ -136,7 +137,7 @@ class Produit
 
         return $this;
     }
-
+*/
     
     public function getDateCreation(): ?\DateTimeImmutable
     {
@@ -209,8 +210,25 @@ class Produit
 
         return $this;
     }
+    // Vich ------------
+    #[Vich\UploadableField(mapping: 'typeproduit_images', fileNameProperty: 'illustration')]
+    private ?File $imageFile = null;
 
-   /* public function getIllustration(): ?string
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        // Cela force Doctrine à enregistrer une mise à jour si un nouveau fichier est uploadé
+        if ($imageFile !== null) {
+            $this->dateCreation = new \DateTimeImmutable();
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+    public function getIllustration(): ?string
     {
         return $this->illustration;
     }
@@ -220,7 +238,7 @@ class Produit
         $this->illustration = $illustration;
 
         return $this;
-    }*/
+    }
 
    public function getPrix(): ?float
    {
