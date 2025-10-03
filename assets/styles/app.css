@@ -7,6 +7,7 @@
 body {
     background-color: aliceblue;
 }
+/* HEADER */
 /* Perosnnalisation Tailwind */
 .bg-dark {
     /*bg navbar*/
@@ -19,6 +20,9 @@ header{
     background-color: black;
     height: 100vh;
     margin-bottom: 68px;
+}
+.NavUl{
+ /* margin-right: 70px;*/
 }
 h1 {
     font-size: 3rem !important;  /* ou 32px */
