@@ -35,7 +35,8 @@
     <div class="ProduitList">
         {% for Typeproduit in Typeproduits %}
             <div class="cardProd">
-                <div class="ImgProduit"><img src="{{ asset('images/' ~ Typeproduit.ImageFile) }}" alt="{{ Typeproduit.libelle }}"></div>
+               <div class="ImgProduit" style="background-image: url({{ asset('images/' ~ Typeproduit.illustration) }});"></div>
+
                 <div class="TitreProduit">{{ Typeproduit.libelle }}</div>
                 <div class="DescripProduit">{{ Typeproduit.description }}</div>
                 <div class="InfoProduit">
@@ -46,28 +47,5 @@
         {% endfor %}
     </div>
 </div>
-{% for Typeproduit in Typeproduits %}
-<img src="{{ asset('images/' ~ Typeproduit.illustration) }}" alt="{{ Typeproduit.libelle }}">
-{% endfor %}
-{% for Typeproduit in Typeproduits %}
-    {# Debug : afficher le nom du fichier #}
-    <p>Fichier : {{ Typeproduit.illustration }}</p>
-    <p>Chemin complet : {{ asset('images/' ~ Typeproduit.illustration) }}</p>
-    
-    <img src="{{ asset('images/' ~ Typeproduit.illustration) }}" 
-         alt="{{ Typeproduit.libelle }}"
-         onerror="this.style.border='2px solid red'">
-{% endfor %}
-{% for Typeproduit in Typeproduits %}
-    {% if Typeproduit.illustration %}
-        <img src="{{ asset('images/' ~ Typeproduit.illustration) }}" 
-             alt="{{ Typeproduit.libelle }}">
-    {% else %}
-        <img src="{{ asset('images/placeholder.jpg') }}" 
-             alt="{{ Typeproduit.libelle }}"
-             title="Pas d'image">
-        {# Ou simplement #}
-        <p>Aucune image disponible</p>
-    {% endif %}
-{% endfor %}
+
 {% endblock %}

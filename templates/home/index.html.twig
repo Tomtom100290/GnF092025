@@ -4,20 +4,32 @@
 
 {% block body %}
 Page d'accueil
- <h1>Liste des produits</h1>
 
-    <ul>
-        {% for Typeproduit in Typeproduits %}
-            <li>
-                {{ Typeproduit.libelle }}
-            </li>
-        {% else %}
+
+
+   
+    <div class="MainPage">
+
+
+            <!-- Entête-->
+    <div class="Entete">
+        <div class="paraEnt">
+             {% for elemPageHome in homepageG %}
+            <h1>{{elemPageHome.h1}}</h1>
+            <h2>{{elemPageHome.h2}}</h2>
+            {% else %}
             <li>Aucun produit trouvé.</li>
         {% endfor %}
-    </ul>
-    <div class="MainPage">
-<!--En tête-->
-        <div class="blocsHome Entete"></div>
+
+        </div>
+        <div class="ImgEnt">
+            {% for elemPageHome in homepageG %}
+            <p>{{elemPageHome.paragraphe}}</p>
+            <div class="ImgL">{{elemPageHome.img}}</div>
+            {% endfor %}
+        </div>
+    </div>
+ 
 <!--BestSeller-->
         <div class="blocsHome BestSeller"></div>
 <!--Coup de coeur-->

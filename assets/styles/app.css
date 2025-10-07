@@ -101,8 +101,13 @@ margin-bottom: 24px;
   width: 100%;
   height: 200px;
   background-color: black;
+  overflow: hidden;
+  background-position: center;   /* centre l'image horizontalement ET verticalement */
+    background-repeat: no-repeat;  /* évite les répétitions si l’image est trop petite */
 }
-
+.imgProduit img {
+  object-fit: cover !important;
+}
 .TitreProduit {
   margin: 6px auto;
   text-align: center;
