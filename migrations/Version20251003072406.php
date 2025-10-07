@@ -18,20 +18,20 @@ final class Version20251003072406 extends AbstractMigration
     }
 
     public function up(Schema $schema): void
-{
-    // Étape 1 : Renommer les tables
-    //$this->addSql('ALTER TABLE produit_tag DROP FOREIGN KEY FK_423DC0FABAD26311');
-    //$this->addSql('ALTER TABLE produit_tag DROP FOREIGN KEY FK_423DC0FAF347EFB');
-    //$this->addSql('ALTER TABLE produit DROP FOREIGN KEY FK_29A5EC273797863B');
+    {
+        // Étape 1 : Renommer les tables
+        //$this->addSql('ALTER TABLE produit_tag DROP FOREIGN KEY FK_423DC0FABAD26311');
+        //$this->addSql('ALTER TABLE produit_tag DROP FOREIGN KEY FK_423DC0FAF347EFB');
+        //$this->addSql('ALTER TABLE produit DROP FOREIGN KEY FK_29A5EC273797863B');
 
-    //$this->addSql('ALTER TABLE produit RENAME TO type_produit');
-    //$this->addSql('ALTER TABLE produit_tag RENAME TO type_produit_tag');
+        $this->addSql('ALTER TABLE produit RENAME TO type_produit');
+        //$this->addSql('ALTER TABLE produit_tag RENAME TO type_produit_tag');
 
-    // Étape 2 : Recréer les contraintes sur les nouvelles tables renommées
-    $this->addSql('ALTER TABLE type_produit ADD CONSTRAINT FK_18483D23797863B FOREIGN KEY (fk_categorie_produit_id) REFERENCES categorie (id)');
-    $this->addSql('ALTER TABLE type_produit_tag ADD CONSTRAINT FK_924176B1237A8DE FOREIGN KEY (type_produit_id) REFERENCES type_produit (id) ON DELETE CASCADE');
-    $this->addSql('ALTER TABLE type_produit_tag ADD CONSTRAINT FK_924176BBAD26311 FOREIGN KEY (tag_id) REFERENCES tag (id) ON DELETE CASCADE');
-}
+        // Étape 2 : Recréer les contraintes sur les nouvelles tables renommées
+        $this->addSql('ALTER TABLE type_produit ADD CONSTRAINT FK_18483D23797863B FOREIGN KEY (fk_categorie_produit_id) REFERENCES categorie (id)');
+        //$this->addSql('ALTER TABLE type_produit_tag ADD CONSTRAINT FK_924176B1237A8DE FOREIGN KEY (type_produit_id) REFERENCES type_produit (id) ON DELETE CASCADE');
+        //$this->addSql('ALTER TABLE type_produit_tag ADD CONSTRAINT FK_924176BBAD26311 FOREIGN KEY (tag_id) REFERENCES tag (id) ON DELETE CASCADE');
+    }
 
     public function down(Schema $schema): void
     {
