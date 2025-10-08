@@ -33,12 +33,21 @@
 		<!--BestSeller-->
 		<div class="blocsHome BestSeller"></div>
 		<!--Coup de coeur-->
-		<div class="blocsHome CdC"></div>
+		<div class="blocsHomeCdC">
+            <h2>Nos coups de Coeur</h2>
+                <div class="imgCdc">
+                    {% for elemPageHome in homepageG %}
+                    <div class="CDC">{{elemPageHome.img}}</div>
+                    <div class="CDC">{{elemPageHome.img}}</div>
+                    <div class="CDC">{{elemPageHome.img}}</div> 
+                    {% endfor %}
+                </div>
+        </div>
 		<!--Avis client-->
 		<div class="blocsHome Avis"></div>
 		<!--Réseau-->
-		<div class="w-full max-w-7xl">
-			<h1 class="text-3xl font-bold text-center mb-8 text-gray-800">Suivez-nous sur les réseaux</h1>
+		<div class="w-full max-w-8xl mx-auto">
+			<h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Suivez-nous sur les réseaux</h2>
 
 			<div
 				id="default-carousel" class="relative w-full" data-carousel="slide" data-carousel-interval=" 8000">
@@ -48,58 +57,71 @@
 					<!-- Slide 1 - Images 1-4 -->
 					<div class="hidden duration-700 ease-in-out " data-carousel-item data-carousel-interval=" 8000">
 						<div class="grid grid-cols-4 gap-4 h-full p-4">
-							<div class="relative h-full">
-								<img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400" class="w-full h-full object-cover rounded-lg" alt="Image 1">
-								<i class="fa-brands fa-instagram Myicon"></i>
-							</div>
-							<div class="relative h-full">
-								<img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=400" class="w-full h-full object-cover rounded-lg" alt="Image 2">
-								<div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg">
-									<p class="text-sm font-semibold">Image 2</p>
-								</div>
-							</div>
-							<div class="relative h-full">
-								<img src="https://images.unsplash.com/photo-1511884642898-4c92249e20b6?w=400" class="w-full h-full object-cover rounded-lg" alt="Image 3">
-								<div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg">
-									<p class="text-sm font-semibold">Image 3</p>
-								</div>
-							</div>
-							<div class="relative h-full">
-								<img src="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=400" class="w-full h-full object-cover rounded-lg" alt="Image 4">
-								<div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg">
-									<p class="text-sm font-semibold">Image 4</p>
-								</div>
-							</div>
+
+                            
+							<a href="https://www.notion.so/SQL-150d6a229483809c8630f9ce419e0825" class="LiensResaux">
+                                <div class="relative h-full">
+                                    <div class="EffHov"></div>
+								    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400" class="w-full h-full object-cover rounded-lg" alt="Image 1">
+								    <i class="fa-brands fa-instagram Myicon"></i>
+							    </div>
+                            </a>
+							<a href="https://www.notion.so/SQL-150d6a229483809c8630f9ce419e0825" class="LiensResaux">
+                                <div class="relative h-full">
+                                    <div class="EffHov"></div>
+								    <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=400" class="w-full h-full object-cover rounded-lg" alt="Image 1">
+								    <i class="fa-brands fa-instagram Myicon"></i>
+							    </div>
+                            </a>
+							<a href="https://www.notion.so/SQL-150d6a229483809c8630f9ce419e0825" class="LiensResaux">
+                                <div class="relative h-full">
+                                    <div class="EffHov"></div>
+								    <img src="https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=400" class="w-full h-full object-cover rounded-lg" alt="Image 1">
+								    <i class="fa-brands fa-instagram Myicon"></i>
+							    </div>
+                            </a>
+							<a href="https://www.notion.so/SQL-150d6a229483809c8630f9ce419e0825" class="LiensResaux">
+                                <div class="relative h-full">
+                                    <div class="EffHov"></div>
+								    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400" class="w-full h-full object-cover rounded-lg" alt="Image 1">
+								    <i class="fa-brands fa-instagram Myicon"></i>
+							    </div>
+                            </a>
 						</div>
 					</div>
 
 					<!-- Slide 2 - Images 5-8 -->
 					<div class="hidden duration-700 ease-in-out" data-carousel-item data-carousel-interval=" 8000">
 						<div class="grid grid-cols-4 gap-4 h-full p-4">
-							<div class="relative h-full">
-								<img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400" class="w-full h-full object-cover rounded-lg" alt="Image 5">
-								<div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg">
-									<p class="text-sm font-semibold">Image 5</p>
-								</div>
-							</div>
-							<div class="relative h-full">
-								<img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400" class="w-full h-full object-cover rounded-lg" alt="Image 6">
-								<div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg">
-									<p class="text-sm font-semibold">Image 6</p>
-								</div>
-							</div>
-							<div class="relative h-full">
-								<img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=400" class="w-full h-full object-cover rounded-lg" alt="Image 7">
-								<div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg">
-									<p class="text-sm font-semibold">Image 7</p>
-								</div>
-							</div>
-							<div class="relative h-full">
-								<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=400" class="w-full h-full object-cover rounded-lg" alt="Image 8">
-								<div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg">
-									<p class="text-sm font-semibold">Image 8</p>
-								</div>
-							</div>
+
+                            <a href="https://www.notion.so/SQL-150d6a229483809c8630f9ce419e0825" class="LiensResaux">
+                                <div class="relative h-full">
+                                    <div class="EffHov"></div>
+								    <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=400" class="w-full h-full object-cover rounded-lg" alt="Image 1">
+								    <i class="fa-brands fa-instagram Myicon"></i>
+							    </div>
+                            </a>
+							<a href="https://www.notion.so/SQL-150d6a229483809c8630f9ce419e0825" class="LiensResaux">
+                                <div class="relative h-full">
+                                    <div class="EffHov"></div>
+								    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400" class="w-full h-full object-cover rounded-lg" alt="Image 1">
+								    <i class="fa-brands fa-instagram Myicon"></i>
+							    </div>
+                            </a>
+							<a href="https://www.notion.so/SQL-150d6a229483809c8630f9ce419e0825" class="LiensResaux">
+                                <div class="relative h-full">
+                                    <div class="EffHov"></div>
+								    <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=400" class="w-full h-full object-cover rounded-lg" alt="Image 1">
+								    <i class="fa-brands fa-instagram Myicon"></i>
+							    </div>
+                            </a>
+							<a href="https://www.notion.so/SQL-150d6a229483809c8630f9ce419e0825" class="LiensResaux">
+                                <div class="relative h-full">
+                                    <div class="EffHov"></div>
+								    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=400" class="w-full h-full object-cover rounded-lg" alt="Image 1">
+								    <i class="fa-brands fa-instagram Myicon"></i>
+							    </div>
+                            </a>
 						</div>
 					</div>
 
@@ -128,7 +150,8 @@
 						</span>
 					</button>
 				</div>
-			</div>
+	</div>
+    </div>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 
 		{% endblock %}
