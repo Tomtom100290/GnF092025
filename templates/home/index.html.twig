@@ -35,10 +35,10 @@
 		<div class="blocsHomeCdC">
             
                 <div class="imgCdc">
-                    {% for Typeproduit in Typeproduits %}
-                    <div class="CDC">{{Typeproduit.illustration}}</div>
-                    <div class="CDC">{{Typeproduit.illustration}}</div>
-                    <div class="CDC">{{Typeproduit.illustration}}</div> 
+                    {% for bestseller in bestsellers %}
+                    <div class="CDC">{{bestseller.produit1}}</div>
+                    <div class="CDC">{{bestseller.produit2}}</div>
+                    <div class="CDC">{{bestseller.produit3}}</div> 
                     {% endfor %}
                 </div>
 				

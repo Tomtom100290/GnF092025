@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\BestSellers;
 use App\Entity\Categorie;
 use App\Entity\Client;
 use App\Entity\HomePage;
@@ -56,7 +57,10 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Catégories', 'fas fa-list', Categorie::class);
         // Construction des pages 
         yield MenuItem::linkToCrud('Page CADEAU', 'fas fa-list', PageCadeau::class);
-        yield MenuItem::linkToCrud('Page Accueil', 'fas fa-list', HomePage::class);
+        yield MenuItem::subMenu('Page d\'accueil', 'fa fa-house')->setSubItems([
+                    MenuItem::linkToCrud('Présentation', 'fa fa-info-circle', HomePage::class),
+                    MenuItem::linkToCrud('Best Sellers', 'fa fa-star', BestSellers::class),
+                                                                        ]);
         yield MenuItem::linkToRoute('Aller au site Web', 'fas fa-solid fa-pager', 'app_home');
     }
 }
