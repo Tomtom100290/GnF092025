@@ -1,11 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!
+{% block title %}Cadeaux personalisés
 {% endblock %}
 
 {% block body %}
-	Page d'accueil
-
 
 	<div
 		class="MainPage">
@@ -33,21 +31,24 @@
 		<!--BestSeller-->
 		<div class="blocsHome BestSeller"></div>
 		<!--Coup de coeur-->
+		<h2>Nos coups de Coeur</h2>
 		<div class="blocsHomeCdC">
-            <h2>Nos coups de Coeur</h2>
+            
                 <div class="imgCdc">
-                    {% for elemPageHome in homepageG %}
-                    <div class="CDC">{{elemPageHome.img}}</div>
-                    <div class="CDC">{{elemPageHome.img}}</div>
-                    <div class="CDC">{{elemPageHome.img}}</div> 
+                    {% for Typeproduit in Typeproduits %}
+                    <div class="CDC">{{Typeproduit.illustration}}</div>
+                    <div class="CDC">{{Typeproduit.illustration}}</div>
+                    <div class="CDC">{{Typeproduit.illustration}}</div> 
                     {% endfor %}
                 </div>
+				
         </div>
 		<!--Avis client-->
 		<div class="blocsHome Avis"></div>
 		<!--Réseau-->
-		<div class="w-full max-w-8xl mx-auto">
-			<h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Suivez-nous sur les réseaux</h2>
+		<h2>Suivez-nous sur les réseaux</h2>
+		<div class="BlocInsta w-full  mx-auto">
+			
 
 			<div
 				id="default-carousel" class="relative w-full" data-carousel="slide" data-carousel-interval=" 8000">
@@ -62,7 +63,7 @@
 							<a href="https://www.notion.so/SQL-150d6a229483809c8630f9ce419e0825" class="LiensResaux">
                                 <div class="relative h-full">
                                     <div class="EffHov"></div>
-								    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400" class="w-full h-full object-cover rounded-lg" alt="Image 1">
+								    <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=400" class="w-full h-full object-cover rounded-lg" alt="Image 1">
 								    <i class="fa-brands fa-instagram Myicon"></i>
 							    </div>
                             </a>

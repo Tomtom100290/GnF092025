@@ -44,6 +44,7 @@ h2 {
   font-weight: bold !important;
   margin-bottom: 0.75rem !important;
   text-align: center;
+  margin-top: 36px !important;
 
 }
 
@@ -95,7 +96,9 @@ p {
   position: absolute;
   
  }
-
+.BlocInsta{
+  width: 90% !important;
+}
  /* Bloc blocsHome Coup de coeur */
  .blocsHomeCdC{
   width:90%;
@@ -114,6 +117,7 @@ p {
   height: 100%;
   background-color: bisque;
   margin: 0 auto;
+  border-radius: 0.5em;
  }
 /*Bloc Produit----*/
 .BlocProduits {
