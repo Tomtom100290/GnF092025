@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cadeaux personalisés
+{% block title %}Gift & Fun
 {% endblock %}
 
 {% block body %}
@@ -23,28 +23,50 @@
 			<div class="ImgEnt">
 				{% for elemPageHome in homepageG %}
 					<p>{{elemPageHome.paragraphe}}</p>
-					<div class="ImgL">{{elemPageHome.img}}</div>
+					<div class="ImgL" style="background-image: url('{{ asset('images/' ~ elemPageHome.img) }}');" ></div>
 				{% endfor %}
 			</div>
 		</div>
 
-		<!--BestSeller-->
+		<!--Nouveautés-->
 		<div class="blocsHome BestSeller"></div>
-		<!--Coup de coeur-->
+		<!--BestSellers-->
 		<h2>Nos coups de Coeur</h2>
 		<div class="blocsHomeCdC">
             
                 <div class="imgCdc">
                     {% for bestseller in bestsellers %}
-                    <div class="CDC">{{bestseller.produit1}}</div>
-                    <div class="CDC">{{bestseller.produit2}}</div>
-                    <div class="CDC">{{bestseller.produit3}}</div> 
+                    <div class="CDC" style="background-image: url('{{ asset('images/' ~ bestseller.produit1) }}');"></div>
+                    <div class="CDC" style="background-image: url('{{ asset('images/' ~ bestseller.produit2) }}');"></div>
+                    <div class="CDC" style="background-image: url('{{ asset('images/' ~ bestseller.produit3) }}');"></div>
+                    <div class="CDC" style="background-image: url('{{ asset('images/' ~ bestseller.produit1) }}');"></div>
                     {% endfor %}
                 </div>
 				
         </div>
 		<!--Avis client-->
-		<div class="blocsHome Avis"></div>
+		<div class="blocsHomeAvis">
+			<div class="reviews-section">
+    		<h2 class="section-title">Les avis clients </h2>
+
+    	<!-- WIDGET EMBEDSOCIAL -->
+				<div class="embedsocial-widget" data-ref="cee66eb8d9d63db0b9fbbfccd4135dea">
+					
+					<a href="https://embedsocial.com/google-reviews-widget/" title="Add Google reviews on a website" target="_blank"
+						class="powered-by-es es-slider">
+						
+					</a>
+				</div>
+			</div>
+
+			<!-- Appel à l'action -->
+			<div class="cta-section">
+				<h3>Vous aussi, laissez nous un avis sur votre expèrience!</h3>
+				<a href="#" target="_blank" class="btn-google">
+					<i class="fa-solid fa-star" style="color: #FFD43B;"></i> Laisser un avis Google
+				</a>
+			</div>
+		</div>
 		<!--Réseau-->
 		<h2>Suivez-nous sur les réseaux</h2>
 		<div class="BlocInsta w-full  mx-auto">
@@ -153,6 +175,18 @@
 				</div>
 	</div>
     </div>
+	<!--SCRIPT Tailwind-->
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+	<!--SCRIPT Avis google-->
+	<script>
+    (function (d, s, id) {
+        var js;
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://embedsocial.com/cdn/aht.js";
+        d.getElementsByTagName("head")[0].appendChild(js);
+    }(document, "script", "EmbedSocialWidgetScript"));
+</script>
 
 		{% endblock %}

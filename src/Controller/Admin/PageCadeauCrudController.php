@@ -25,7 +25,9 @@ class PageCadeauCrudController extends AbstractCrudController
             TextField::new('h1'),
             TextField::new('h2'),
             TextareaField::new('paragraphe'),
-            ImageField::new('img')->setUploadDir('assets/images/'),
+            ImageField::new('img')
+            ->setUploadDir('assets/images/'),
+            
         ];
     }
     

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+	<html lang="fr"></html>
 	<head>
 		<meta charset="UTF-8">
 		<title>
@@ -7,8 +8,8 @@
 			{% endblock %}
 		</title>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-		<link
-		rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+		<link rel="icon" href="/images/logo.png" type="image/png">
 		<!-- ✅ Tailwind CDN -->
 		<script src="https://cdn.tailwindcss.com"></script>
 		{% block stylesheets %}{% endblock %}
@@ -124,5 +125,45 @@
 				</ul>
 			</div>
 		</footer>
+		<script>
+		// Solution 1 : Avec intervalle
+let attempts = 0;
+const maxAttempts = 20;
+
+const hideButton = setInterval(function() {
+    const buttons = document.querySelectorAll('button');
+    let found = false;
+    
+    buttons.forEach(button => {
+        if (button.textContent.includes('Leave a review') || 
+            button.textContent.includes('Laisser un avis')) {
+            button.style.display = 'none';
+            found = true;
+        }
+    });
+    
+    attempts++;
+    if (found || attempts >= maxAttempts) {
+        clearInterval(hideButton);
+    }
+}, 200);
+
+// Solution 2 : Observer plus agressif
+const observer = new MutationObserver(function(mutations) {
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => {
+        if (button.textContent.includes('Leave a review') || 
+            button.textContent.includes('Laisser un avis')) {
+            button.style.display = 'none';
+        }
+    });
+});
+
+observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+    attributes: true
+});
+</script>
 	</body>
 </html>

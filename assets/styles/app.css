@@ -71,9 +71,13 @@ p {
 }
 
 .ImgL {
-  width: 40%;
-  height: 300px;
+  width: 700px;
+  height: 250px;
   background-color: bisque;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
  /* Bloc Réseaux sociaux */
  .LiensResaux:hover .EffHov{
@@ -102,7 +106,7 @@ p {
  /* Bloc blocsHome Coup de coeur */
  .blocsHomeCdC{
   width:90%;
-  height: 300px;
+  height: 350px;
   margin: 36px auto ;
  }
  .imgCdc{
@@ -113,11 +117,16 @@ p {
   margin: 0 auto;
  }
  .CDC{
-  width: 33%;
+  width: 24%;
   height: 100%;
   background-color: bisque;
   margin: 0 auto;
   border-radius: 0.5em;
+  background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   overflow: hidden;
+   
  }
 /*Bloc Produit----*/
 .BlocProduits {
@@ -190,6 +199,37 @@ p {
 
 
 }
+/* Avis GOOGLE */
+.blocsHomeAvis{
+  width: 90%;
+  margin: 0 auto;
+}
+.cta-section{
+  margin-left: 80px;
+}
+ .es-read-more::after {
+        content: "Lire plus";
+        color: inherit;
+        font-weight: bold;
+    }
+
+    .es-read-more {
+        color: transparent;
+        /* Cache le texte original */
+        position: relative;
+    }
+
+    .es-read-more::before {
+        content: "";
+    }
+
+    .es-text-toggle {
+        content: "";
+        color: red;
+    }
+    .es-classic-card {
+      background-color: aliceblue !important;
+    }
 
 /*--FOOTER---*/
 footer li {
@@ -239,6 +279,6 @@ footer {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: palevioletred;
+  color: rgb(195, 195, 195);
   font-size: 50px;
 }

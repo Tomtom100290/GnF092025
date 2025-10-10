@@ -18,11 +18,14 @@ final class HomeController extends AbstractController
         $Typeproduits = $TypeproduitRepository->findAll();
         $homepageG = $homePageRepository->findAll();
         $bestsellers =$bestSellersRepository->findAll();
+       
         
         return $this->render('home/index.html.twig', [
             'Typeproduits' => $Typeproduits,
             'homepageG' => $homepageG,
-            'bestsellers' => $bestsellers
+            'bestsellers' => $bestsellers,
+            
+            
         ]);
     }
 }
