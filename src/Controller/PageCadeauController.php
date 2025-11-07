@@ -12,12 +12,12 @@ final class PageCadeauController extends AbstractController
 {
     #[Route('/cadeauPersonnalise', name: 'app_page_cadeau')]
     public function index(PageCadeauRepository $pageCadeauRepository, TypeProduitRepository $TypeproduitRepository): Response
-    {   
-       $produitsCatF = $TypeproduitRepository->findProduitsFriandises();
+    {
+        $produitsCatC = $TypeproduitRepository->findProduitsCadeaux();
         $cadeaux = $pageCadeauRepository->findAll();
 
         return $this->render('pages/page_cadeau/index.html.twig', [
-            'Typeproduits' => $produitsCatF,
+            'Typeproduits' => $produitsCatC,
             'cadeaux' => $cadeaux,
         ]);
     }

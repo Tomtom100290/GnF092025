@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Cadeaux des invités
+{% block title %}Hello PageGourmandiseController!
 {% endblock %}
 
 {% block body %}
-	{% block anim %}Cadeaux Test
+	{% block anim %}Gourmandises Test
 	{% endblock %}
 	<!-- Entête-->
 	<div class="Entete">
 		<div class="paraEnt">
-			{% for cadeau in cadeaux %}
-				<h1>{{cadeau.h1}}</h1>
-				<h2>{{cadeau.h2}}</h2>
+			{% for gourmandise in gourmandises %}
+				<h1>{{gourmandise.h1}}</h1>
+				<h2>{{gourmandise.h2}}</h2>
 
 			{% else %}
 				<li>Aucun produit trouvé.</li>
@@ -19,14 +19,14 @@
 
 		</div>
 		<div class="ImgEnt">
-			{% for cadeau in cadeaux %}
-				<p>{{cadeau.paragraphe}}</p>
-				<div class="ImgL">{{cadeau.img}}</div>
+			{% for gourmandise in gourmandises %}
+				<p>{{gourmandise.paragraphe}}</p>
+				<div class="ImgL">{{gourmandise.img}}</div>
 			{% endfor %}
 			<!--<div class="ImgBC">
-			                <div class="ImgB">img B</div>
-			                <div class="ImgC">img C</div>
-			            </div>-->
+						                <div class="ImgB">img B</div>
+						                <div class="ImgC">img C</div>
+						            </div>-->
 		</div>
 	</div>
 	<!---->

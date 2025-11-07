@@ -40,13 +40,31 @@ class TypeProduitRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
-    public function findProduitsFriandises(): array
-{
-    return $this->createQueryBuilder('p')
-        ->join('p.fkCategorieProduit', 'c')
-        ->where('c.nom = :nom')
-        ->setParameter('nom', 'Friandise')
-        ->getQuery()
-        ->getResult();
-}
+    public function findProduitsGourmandises(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->join('p.fkCategorieProduit', 'c')
+            ->where('c.nom = :nom')
+            ->setParameter('nom', 'Gourmandise')
+            ->getQuery()
+            ->getResult();
+    }
+    public function findProduitsCadeaux(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->join('p.fkCategorieProduit', 'c')
+            ->where('c.nom = :nom')
+            ->setParameter('nom', 'Cadeaux')
+            ->getQuery()
+            ->getResult();
+    }
+    public function findProduitsPersonnalisation(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->join('p.fkCategorieProduit', 'c')
+            ->where('c.nom = :nom')
+            ->setParameter('nom', 'Personnalisation')
+            ->getQuery()
+            ->getResult();
+    }
 }
