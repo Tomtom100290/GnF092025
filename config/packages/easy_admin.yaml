@@ -1,0 +1,7 @@
+easy_admin:
+    design:
+        assets:
+            css:
+                - 'css/custom_easyadmin.css'
+        menu:
+            section_css_class: 'text-uppercase text-muted'

@@ -21,7 +21,7 @@
 		<div class="ImgEnt">
 			{% for gourmandise in gourmandises %}
 				<p>{{gourmandise.paragraphe}}</p>
-				<div class="ImgL">{{gourmandise.img}}</div>
+				<div class="ImgL" style="background-image: url('{{ asset('images/' ~ gourmandise.img) }}');"></div>
 			{% endfor %}
 			<!--<div class="ImgBC">
 						                <div class="ImgB">img B</div>

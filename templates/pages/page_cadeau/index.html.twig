@@ -21,7 +21,7 @@
 		<div class="ImgEnt">
 			{% for cadeau in cadeaux %}
 				<p>{{cadeau.paragraphe}}</p>
-				<div class="ImgL">{{cadeau.img}}</div>
+				<div class="ImgL" style="background-image: url('{{ asset('images/' ~ cadeau.img) }}');"></div>
 			{% endfor %}
 			<!--<div class="ImgBC">
 			                <div class="ImgB">img B</div>

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cadeaux des invités{% endblock %}
+
+{% block body %}
+    {% block anim %}Cadeaux Test{% endblock %}
+    
+    <!-- Entête -->
+    <div class="Entete">
+        <div class="paraEnt">
+            {% for cadeau in cadeaux %}
+                <h1>{{ cadeau.h1 }}</h1>
+                <h2>{{ cadeau.h2 }}</h2>
+            {% else %}
+                <li>Aucun produit trouvé.</li>
+            {% endfor %}
+        </div>
+        <div class="ImgEnt">
+            {% for cadeau in cadeaux %}
+                <p>{{ cadeau.paragraphe }}</p>
+                <div class="ImgL" style="background-image: url('{{ asset('images/' ~ cadeau.img) }}');"></div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Bloc Produits -->
+    <div class="BlocProduits">
+        <h2>Un large choix de produits à personnaliser</h2>
+        <div class="ProduitList">
+            {% for Typeproduit in Typeproduits %}
+                <div class="cardProd">
+                    <div class="ImgProduit" style="background-image: url('{{ asset('images/' ~ Typeproduit.illustration) }}');"></div>
+                    <div class="cardContent">
+                        <div class="TitreProduit">{{ Typeproduit.libelle }}</div>
+                        <div class="DescripProduit">{{ Typeproduit.description }}</div>
+                        <div class="InfoProduit">
+                            <span class="Prx">{{ Typeproduit.prix }}<strong>€</strong></span>
+                            <button class="voir">Voir</button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

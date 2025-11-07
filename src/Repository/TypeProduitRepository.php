@@ -58,12 +58,12 @@ class TypeProduitRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
-    public function findProduitsPersonnalisation(): array
+    public function findProduitsPapetterie(): array
     {
         return $this->createQueryBuilder('p')
             ->join('p.fkCategorieProduit', 'c')
             ->where('c.nom = :nom')
-            ->setParameter('nom', 'Personnalisation')
+            ->setParameter('nom', 'Papetterie')
             ->getQuery()
             ->getResult();
     }

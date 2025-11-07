@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Papetterie{% endblock %}
+
+{% block body %}
+{% block anim %}Papetterie
+	{% endblock %}
+	<!-- Entête-->
+	<div class="Entete">
+		<div class="paraEnt">
+			{% for papetterie in papetteries %}
+				<h1>{{papetterie.h1}}</h1>
+				<h2>{{papetterie.h2}}</h2>
+
+			{% else %}
+				<li>Aucun produit trouvé.</li>
+			{% endfor %}
+
+		</div>
+		<div class="ImgEnt">
+			{% for papetterie in papetteries %}
+				<p>{{papetterie.paragraphe}}</p>
+				<div class="ImgL" style="background-image: url('{{ asset('images/' ~ papetterie.img) }}');"></div>
+			{% endfor %}
+			<!--<div class="ImgBC">
+						                <div class="ImgB">img B</div>
+						                <div class="ImgC">img C</div>
+						            </div>-->
+		</div>
+	</div>
+	<!---->
+
+
+	<div class="BlocProduits">
+		<h2>Une gamme de décoration en papetterie</h2>
+		<div class="ProduitList">
+			{% for Typeproduit in Typeproduits %}
+				<div class="cardProd">
+					<div class="ImgProduit" style="background-image: url('{{ asset('images/' ~ Typeproduit.illustration) }}');"></div>
+					<div class="TitreProduit">{{ Typeproduit.libelle }}</div>
+					<div class="DescripProduit">{{ Typeproduit.description }}</div>
+					<div class="InfoProduit">
+						<span class="Prx">{{ Typeproduit.prix }}<strong>
+								€</strong>
+						</span>
+						<button class="voir">Voir</button>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+{% endblock %}

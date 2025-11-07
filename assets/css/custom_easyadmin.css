@@ -1,0 +1,6 @@
+.menu-item-label  {
+    color: #e74c3c !important;       /* couleur du texte */
+    font-weight: bold;     /* gras */
+    text-transform: uppercase; /* majuscules */
+    font-size: 16px;       /* taille du texte */
+}

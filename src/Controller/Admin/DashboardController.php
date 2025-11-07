@@ -7,6 +7,8 @@ use App\Entity\Categorie;
 use App\Entity\Client;
 use App\Entity\HomePage;
 use App\Entity\PageCadeau;
+use App\Entity\PageGourmandise;
+use App\Entity\Papetterie;
 use App\Entity\TypeProduit;
 use EasyCorp\Bundle\EasyAdminBundle\Attribute\AdminDashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -51,16 +53,21 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+        yield MenuItem::linkToDashboard('Tableau de bord', 'fa fa-home')->setCssClass('my-dashboard-link');;
+        yield MenuItem::section('Paramètre des Données');
         yield MenuItem::linkToCrud('Produits', 'fas fa-list', TypeProduit::class);
         yield MenuItem::linkToCrud('Clients', 'fas fa-list', Client::class);
         yield MenuItem::linkToCrud('Catégories', 'fas fa-list', Categorie::class);
         // Construction des pages 
+        yield MenuItem::section('Paramètre des Pages');
         yield MenuItem::linkToCrud('Page CADEAU', 'fas fa-list', PageCadeau::class);
+        yield MenuItem::linkToCrud('Page PAPETTERIE', 'fas fa-list', Papetterie::class);
+        yield MenuItem::linkToCrud('Page GOURMANDISE', 'fas fa-list', PageGourmandise::class);
         yield MenuItem::subMenu('Page d\'accueil', 'fa fa-house')->setSubItems([
                     MenuItem::linkToCrud('Présentation', 'fa fa-info-circle', HomePage::class),
                     MenuItem::linkToCrud('Best Sellers', 'fa fa-star', BestSellers::class),
-                                                                        ]);
+            ]);
+        yield MenuItem::section('Visualisation');  
         yield MenuItem::linkToRoute('Aller au site Web', 'fas fa-solid fa-pager', 'app_home');
     }
 }
