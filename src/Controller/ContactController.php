@@ -13,6 +13,12 @@ use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Attribute\Route;
 
 final class ContactController extends AbstractController
+
+
+//----------------Lien de téléchargement Mailpit---------------\\
+//---https://github.com/axllent/mailpit/releases/tag/v1.27.10---\\
+
+
 {
     #[Route('/contact', name: 'app_contact')]
     public function contact(Request $request, MailerInterface $mailer):Response

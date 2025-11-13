@@ -59,7 +59,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Tous les produits', 'fa fa-shopping-basket', TypeProduit::class);
 
         // Section séparée pour les filtres par catégorie
-        yield MenuItem::section('Filtrer par catégorie');
+        //yield MenuItem::section('Filtrer par catégorie');
 
         // Gourmandises
         yield MenuItem::linkToCrud('Gourmandises', 'fa fa-cookie-bite', TypeProduit::class)
@@ -78,14 +78,15 @@ class DashboardController extends AbstractDashboardController
             ->setQueryParameter('filters[fkCategorieProduit][comparison]', '=')
             ->setQueryParameter('filters[fkCategorieProduit][value]', 3) // ID de la catégorie Papeterie
             ->setController(TypeProduitCrudController::class);
-        yield MenuItem::linkToCrud('Produits', 'fas fa-list', TypeProduit::class);
-        yield MenuItem::linkToCrud('Clients', 'fas fa-list', Client::class);
-        yield MenuItem::linkToCrud('Catégories', 'fas fa-list', Categorie::class);
+        yield MenuItem::section('Paramètre des Clients');
+        yield MenuItem::linkToCrud('Clients', 'fas fa-users', Client::class);
+        yield MenuItem::section('Paramètre des Catégories');
+        yield MenuItem::linkToCrud('Catégories', 'fas fa-tag', Categorie::class);
         // Construction des pages 
         yield MenuItem::section('Paramètre des Pages');
-        yield MenuItem::linkToCrud('Page CADEAU', 'fas fa-list', PageCadeau::class);
-        yield MenuItem::linkToCrud('Page PAPETTERIE', 'fas fa-list', Papetterie::class);
-        yield MenuItem::linkToCrud('Page GOURMANDISE', 'fas fa-list', PageGourmandise::class);
+        yield MenuItem::linkToCrud('Page CADEAU', 'fas fa-file', PageCadeau::class);
+        yield MenuItem::linkToCrud('Page PAPETTERIE', 'fas fa-file', Papetterie::class);
+        yield MenuItem::linkToCrud('Page GOURMANDISE', 'fas fa-file', PageGourmandise::class);
         yield MenuItem::subMenu('Page d\'accueil', 'fa fa-house')->setSubItems([
             MenuItem::linkToCrud('Présentation', 'fa fa-info-circle', HomePage::class),
             MenuItem::linkToCrud('Best Sellers', 'fa fa-star', BestSellers::class),

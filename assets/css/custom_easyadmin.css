@@ -4,3 +4,11 @@
     text-transform: uppercase; /* majuscules */
     font-size: 16px;       /* taille du texte */
 }
+.btn-ajouter {
+    background-color: #28a745 !important; /* vert */
+    color: white;              /* texte blanc */
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
