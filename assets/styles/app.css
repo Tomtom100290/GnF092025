@@ -48,16 +48,17 @@ h2 {
 
 }
 
+/*
 p {
   font-size: 1rem !important;
-  /* ou 16px */
+  /* ou 16px 
   line-height: 1.6 !important;
   margin-bottom: 1rem !important;
   text-align: start;
   padding: 0px 16px;
   width: 60%;
 }
-
+/*
 .ImgEnt {
   display: flex;
   justify-content: space-around;
@@ -65,11 +66,11 @@ p {
 
 }
 
-.Entete {
+/*.Entete {
   width: 85%;
   margin: 0 auto;
-}
-
+}*/
+/*
 .ImgL {
   width: 500px;
   height: 350px;
@@ -79,61 +80,71 @@ p {
   background-size: cover;
 
 }
- /* Bloc Réseaux sociaux */
- .LiensResaux:hover .EffHov{
-  
+
+/* Bloc Réseaux sociaux */
+.LiensResaux:hover .EffHov {
+
   height: 100%;
-  
- }
- .LiensResaux:hover{
+
+}
+
+.LiensResaux:hover {
   scale: 1.01;
   height: 100%;
   box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
-  
 
- }
- .EffHov{
+
+}
+
+.EffHov {
   width: 100%;
   height: 0%;
   background-color: rgba(255, 167, 246, 0.274);
-  transition: 0.5s; /* 0.5 secondes */
+  transition: 0.5s;
+  /* 0.5 secondes */
   position: absolute;
-  
- }
-.BlocInsta{
+
+}
+
+.BlocInsta {
   width: 90% !important;
 }
- /* Bloc blocsHome Coup de coeur */
- .blocsHomeCdC{
-  width:90%;
+
+/* Bloc blocsHome Coup de coeur */
+.blocsHomeCdC {
+  width: 90%;
   height: 350px;
-  margin: 36px auto ;
- }
- .imgCdc{
+  margin: 36px auto;
+}
+
+.imgCdc {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: space-around;
   margin: 0 auto;
- }
- .CDC{
+}
+
+.CDC {
   width: 24%;
   height: 100%;
   background-color: bisque;
   margin: 0 auto;
   border-radius: 0.5em;
   background-position: center;
-   background-size: cover;
-   background-repeat: no-repeat;
-   overflow: hidden;
-   
- }
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+
+}
+
 /*Bloc Produit----*/
+/*
 .BlocProduits {
   margin-top: 48px;
   margin-bottom: 24px;
 }
-
+/*
 .ProduitList {
   width: 90%;
   margin: 0 auto;
@@ -146,6 +157,7 @@ p {
 
 }
 
+/*
 .cardProd {
   width: 235px;
 
@@ -160,8 +172,8 @@ p {
   margin: 16px;
   padding: 8px;
   position: relative;
-}
-
+}*/
+/*
 .ImgProduit {
   margin: 4px auto;
   width: 100%;
@@ -169,28 +181,30 @@ p {
   background-color: black;
   overflow: hidden;
   background-position: center;
-  /* centre l'image horizontalement ET verticalement */
+  /* centre l'image horizontalement ET verticalement 
   background-repeat: no-repeat;
-  /* évite les répétitions si l’image est trop petite */
+  /* évite les répétitions si l’image est trop petite 
 }
-
+*/
+/*
 .imgProduit img {
   object-fit: cover !important;
 }
-
+*/
+/*
 .TitreProduit {
   margin: 6px auto;
   text-align: center;
 }
 
-.DescripProduit {
+/*.DescripProduit {
   margin: 8px auto;
   margin-bottom: 2px;
   height: 110px;
 
-}
+}*/
 
-.InfoProduit {
+/*.InfoProduit {
   margin: 10px auto;
   display: flex;
   justify-content: space-between;
@@ -198,38 +212,42 @@ p {
   flex-grow: 1;
 
 
-}
+}*/
+
 /* Avis GOOGLE */
-.blocsHomeAvis{
+.blocsHomeAvis {
   width: 90%;
   margin: 0 auto;
 }
-.cta-section{
+
+.cta-section {
   margin-left: 80px;
 }
- .es-read-more::after {
-        content: "Lire plus";
-        color: inherit;
-        font-weight: bold;
-    }
 
-    .es-read-more {
-        color: transparent;
-        /* Cache le texte original */
-        position: relative;
-    }
+.es-read-more::after {
+  content: "Lire plus";
+  color: inherit;
+  font-weight: bold;
+}
 
-    .es-read-more::before {
-        content: "";
-    }
+.es-read-more {
+  color: transparent;
+  /* Cache le texte original */
+  position: relative;
+}
 
-    .es-text-toggle {
-        content: "";
-        color: red;
-    }
-    .es-classic-card {
-      background-color: aliceblue !important;
-    }
+.es-read-more::before {
+  content: "";
+}
+
+.es-text-toggle {
+  content: "";
+  color: red;
+}
+
+.es-classic-card {
+  background-color: aliceblue !important;
+}
 
 /*--FOOTER---*/
 footer li {
@@ -257,9 +275,9 @@ footer {
   padding-bottom: 24px;
 }
 
-.Prx {
+/*.Prx {
   font-weight: bold;
-}
+}*/
 
 .blocsHomeReseau {
   width: 100%;
@@ -282,264 +300,267 @@ footer {
   color: rgb(195, 195, 195);
   font-size: 50px;
 }
+
 /*------------------------------------------------*/
 /* CSS TEST PAGE PRODUITS*/
 
 /* === SECTION ENTÊTE === */
 .Entete {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    max-width: 1400px;
-    margin: 80px auto;
-    padding: 0 40px;
-    align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  max-width: 1400px;
+  margin: 80px auto;
+  padding: 0 40px;
+  align-items: center;
 }
 
 .paraEnt h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: #2c2c2c;
-    margin-bottom: 20px;
-    line-height: 1.2;
-    letter-spacing: -0.5px;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
 }
 
 .paraEnt h2 {
-    font-size: 1.8rem;
-    font-weight: 400;
-    color: #d4a574;
-    margin-bottom: 0;
-    font-style: italic;
-    letter-spacing: 0.5px;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #d4a574;
+  margin-bottom: 0;
+  font-style: italic;
+  letter-spacing: 0.5px;
 }
 
 .ImgEnt p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #555;
-    margin-bottom: 35px;
-    font-weight: 300;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 35px;
+  font-weight: 300;
 }
 
 .ImgL {
-    width: 100%;
-    height: 500px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  width: 100%;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .ImgL:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
 }
 
 /* === SECTION PRODUITS === */
 .BlocProduits {
-    background: linear-gradient(135deg, #faf8f5 0%, #f5f0eb 100%);
-    padding: 100px 40px;
-    margin-top: 80px;
+  background: linear-gradient(135deg, #faf8f5 0%, #f5f0eb 100%);
+  padding: 100px 40px;
+  margin-top: 80px;
 }
 
 .BlocProduits h2 {
-    text-align: center;
-    font-size: 2.8rem;
-    font-weight: 600;
-    color: #2c2c2c;
-    margin-bottom: 70px;
-    letter-spacing: -0.3px;
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: #2c2c2c;
+  margin-bottom: 70px;
+  letter-spacing: -0.3px;
 }
 
 .ProduitList {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 40px;
-    max-width: 1400px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 /* === CARTES PRODUITS === */
 .cardProd {
-    background: white;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex;
-    flex-direction: column;
+  background: rgb(238, 233, 222);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
 }
 
 .cardProd:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  transform: translateY(-12px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
 }
 
 .ImgProduit {
-    width: 100%;
-    height: 280px;
-    background-size: cover;
-    background-position: center;
-    transition: transform 0.5s ease;
+  width: 100%;
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+
 }
 
 .cardProd:hover .ImgProduit {
-    transform: scale(1.08);
+  transform: scale(1.08);
 }
 
 .cardContent {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .TitreProduit {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #2c2c2c;
-    margin-bottom: 15px;
-    letter-spacing: -0.2px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c2c2c;
+  margin-bottom: 15px;
+  letter-spacing: -0.2px;
+  text-align: center;
 }
 
 .DescripProduit {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #666;
-    margin-bottom: 25px;
-    flex-grow: 1;
-    font-weight: 300;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 25px;
+  flex-grow: 1;
+  font-weight: 300;
 }
 
 .InfoProduit {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-top: 1px solid #eee;
 }
 
 .Prx {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #d4a574;
-    letter-spacing: -0.5px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #d4a574;
+  letter-spacing: -0.5px;
 }
 
 .Prx strong {
-    font-size: 1.2rem;
-    margin-left: 2px;
+  font-size: 1.2rem;
+  margin-left: 2px;
 }
 
 .voir {
-    background: linear-gradient(135deg, #d4a574 0%, #c89563 100%);
-    color: white;
-    border: none;
-    padding: 12px 32px;
-    border-radius: 25px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+  background: linear-gradient(135deg, #d4a574 0%, #c89563 100%);
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
 }
 
 .voir:hover {
-    background: linear-gradient(135deg, #c89563 0%, #b8814f 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
+  background: linear-gradient(135deg, #c89563 0%, #b8814f 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 165, 116, 0.4);
 }
 
 .voir:active {
-    transform: translateY(0);
+  transform: translateY(0);
 }
 
 /* === RESPONSIVE === */
 @media (max-width: 1024px) {
-    .Entete {
-        grid-template-columns: 1fr;
-        gap: 50px;
-        margin: 60px auto;
-    }
-    
-    .paraEnt h1 {
-        font-size: 2.8rem;
-    }
-    
-    .paraEnt h2 {
-        font-size: 1.5rem;
-    }
-    
-    .ImgL {
-        height: 400px;
-    }
+  .Entete {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    margin: 60px auto;
+  }
+
+  .paraEnt h1 {
+    font-size: 2.8rem;
+  }
+
+  .paraEnt h2 {
+    font-size: 1.5rem;
+  }
+
+  .ImgL {
+    height: 400px;
+  }
 }
 
 @media (max-width: 768px) {
-    .Entete {
-        padding: 0 20px;
-        margin: 40px auto;
-    }
-    
-    .paraEnt h1 {
-        font-size: 2.2rem;
-    }
-    
-    .paraEnt h2 {
-        font-size: 1.3rem;
-    }
-    
-    .ImgL {
-        height: 300px;
-    }
-    
-    .BlocProduits {
-        padding: 60px 20px;
-        margin-top: 40px;
-    }
-    
-    .BlocProduits h2 {
-        font-size: 2rem;
-        margin-bottom: 40px;
-    }
-    
-    .ProduitList {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
+  .Entete {
+    padding: 0 20px;
+    margin: 40px auto;
+  }
+
+  .paraEnt h1 {
+    font-size: 2.2rem;
+  }
+
+  .paraEnt h2 {
+    font-size: 1.3rem;
+  }
+
+  .ImgL {
+    height: 300px;
+  }
+
+  .BlocProduits {
+    padding: 60px 20px;
+    margin-top: 40px;
+  }
+
+  .BlocProduits h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .ProduitList {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
 }
 
 @media (max-width: 480px) {
-    .paraEnt h1 {
-        font-size: 1.8rem;
-    }
-    
-    .paraEnt h2 {
-        font-size: 1.1rem;
-    }
-    
-    .ImgEnt p {
-        font-size: 1rem;
-    }
-    
-    .cardContent {
-        padding: 20px;
-    }
-    
-    .TitreProduit {
-        font-size: 1.3rem;
-    }
-    
-    .InfoProduit {
-        flex-direction: column;
-        gap: 15px;
-        align-items: stretch;
-    }
-    
-    .voir {
-        width: 100%;
-    }
+  .paraEnt h1 {
+    font-size: 1.8rem;
+  }
+
+  .paraEnt h2 {
+    font-size: 1.1rem;
+  }
+
+  .ImgEnt p {
+    font-size: 1rem;
+  }
+
+  .cardContent {
+    padding: 20px;
+  }
+
+  .TitreProduit {
+    font-size: 1.3rem;
+  }
+
+  .InfoProduit {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+
+  .voir {
+    width: 100%;
+  }
 }

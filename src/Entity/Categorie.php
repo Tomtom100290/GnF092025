@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+
 #[ORM\HasLifecycleCallbacks]
 #[ORM\Entity(repositoryClass: CategorieRepository::class)]
 class Categorie
@@ -68,6 +69,7 @@ class Categorie
 
         return $this;
     }
+
     public function __toString(): string
     {
         return $this->nom ?? '';
@@ -159,6 +161,6 @@ class Categorie
     public function setCodeCategorie(string $codeCategorie): static
     {
         $this->codeCategorie = $codeCategorie ? strtoupper($codeCategorie) : null;
-    return $this;
+        return $this;
     }
 }
