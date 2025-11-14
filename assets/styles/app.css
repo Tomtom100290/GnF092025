@@ -485,6 +485,120 @@ footer {
     border-radius: 4px;
     cursor: pointer;
 }
+/* page contact
+:root {
+    --primary: #d4a574;
+    --primary-hover: #c19061;
+    --bg: #f8f6f3;
+    --text: #333;
+    --error: #c0392b;
+    --success: #27ae60;
+    --shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* Structure */
+.contact-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background: var(--bg);
+}
+
+.contact-card {
+    width: 100%;
+    max-width: 700px;
+    background: white;
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+}
+
+/* Titre */
+.contact-title {
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: var(--text);
+    font-weight: 600;
+}
+
+/* Flash messages */
+.flash {
+    position: relative;
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    color: white;
+    font-size: 15px;
+}
+
+.flash-success { background: var(--success); }
+.flash-error { background: var(--error); }
+
+.flash-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* Formulaire */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text);
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    outline: none;
+    transition: 0.2s;
+    background: #fff;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(212,165,116,0.25);
+}
+
+.form-textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.form-button {
+    width: 100%;
+    background: var(--primary);
+    color: rgb(101, 100, 114);
+    padding: 14px;
+    border: none;
+    cursor: pointer;
+    font-size: 17px;
+    border-radius: 8px;
+    background-color: rgb(201, 177, 100);
+   
+}
+
+.form-button:hover {
+    background-color: #555;
+    color: #d4a574;
+}
+
+.form-button:active {
+    transform: scale(0.98);
+}
+
 /* === RESPONSIVE === */
 @media (max-width: 1024px) {
   .Entete {
