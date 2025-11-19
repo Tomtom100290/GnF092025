@@ -1,167 +1,263 @@
 <!DOCTYPE html>
-<html></html>
-<html lang="fr"></html>
+<html lang="fr">
 <head>
-	<meta charset="UTF-8">
-	<title>
-		{% block title %}Bienvenu chez Gift & Fun!
-		{% endblock %}
-	</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-	<link
-	rel="icon" href="/images/logo.png" type="image/png">
-	<!-- ✅ Tailwind CDN -->
-	<script src="https://cdn.tailwindcss.com"></script>
-	{% block stylesheets %}{% endblock %}
-
-	{% block javascripts %}
-		<script src="https://cdn.jsdelivr.net/npm/flowbite@2.3.0/dist/flowbite.min.js"></script>
-
-		{% block importmap %}
-			{{ importmap('app') }}
-		{% endblock %}
-	{% endblock %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Bienvenu chez Gift & Fun!{% endblock %}</title>
+    
+    <!-- Favicons -->
+    <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    {% block stylesheets %}
+    <style>
+        /* Forcer l'affichage de l'item actif du carousel */
+        [data-carousel-item="active"] {
+            display: block !important;
+        }
+        
+        /* Styles du footer */
+		/*
+        .BlocFooter {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            padding: 2rem;
+            background-color: #1f2937;
+            color: white;
+        }
+        
+        .FootRes ul, .FootLiens ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .FootRes ul li, .FootLiens ul li {
+            margin: 0.5rem 0;
+        }
+        
+        .FootRes ul li a, .FootLiens ul li a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .FootRes ul li a:hover, .FootLiens ul li a:hover {
+            color: #fff;
+        }
+        
+        .FootLiens ul {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .FootLiens ul li a i {
+            font-size: 1.5rem;
+        }*/
+    </style>
+    {% endblock %}
 </head>
-<script src="https://cdn.jsdelivr.net/npm/flowbite@2.3.0/dist/flowbite.min.js"></script>
 
-<body>
-	<!--NAV BAR-->
-	<header>
-		<nav
-			class="bg-dark border-gray-200 gray:bg-gray-900">
-			<!--bg de la navbar-->
-			<div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-				<a href="{{ path('app_home') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
-					<img src="{{ asset('images/logoGnF.jpg') }}" class="h-11" alt="Flowbite Logo"/>
-					<span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Gift & Fun</span>
-				</a>
-				<button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
-					<span class="sr-only">Open main menu</span>
-					<svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 17 14">
-						<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-					</svg>
-				</button>
-				<div class="hidden w-full md:block md:w-auto" id="navbar-default">
-					<ul class="NavUl font-medium flex flex-col p-4 md:p-0 mt-4 border rounded-lg  md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
-						<li>
-							<a href="{{ path('app_home') }}" class="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-rose-400 md:p-0 dark:text-white md:dark:text-rose-400" aria-current="page">Accueil</a>
-						</li>
-						<li>
-							<a href="{{ path('app_page_gourmandise') }}" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Gourmandises</a>
-						</li>
-						<li>
-							<a href="{{ path('app_papetterie') }}" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Papetterie</a>
-						</li>
-						<li>
-							<a href="{{ path('app_page_cadeau') }}" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Cadeaux invités</a>
-						</li>
-						<li>
-							<a href="{{ path('app_contact')}}" class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		<!--FIN NAV BAR-->
-		<!--SLIDER-->
-		<div
-			id="controls-carousel" class="relative w-full h-screen" data-carousel="slide" data-carousel-interval="10000">
-			<!-- Carousel wrapper -->
-			<div
-				class="relative h-full overflow-hidden rounded-lg">
-				<!-- Item 1 -->
-				<div class="hidden duration-700 ease-in-out h-full" data-carousel-item>
-					<img src="{{ asset('images/balloons.jpg') }}" alt="Image par défaut" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-				</div>
-				<!-- Item 2 -->
-				<div class="hidden duration-700 ease-in-out h-full" data-carousel-item="active">
-					<img src="{{ asset('images/cake.jpg') }}" alt="Image par défaut" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-				</div>
-				<!-- Item 3 -->
-				<div class="hidden duration-700 ease-in-out h-full" data-carousel-item>
-					<img src="{{ asset('images/balloons.jpg') }}" alt="Image par défaut" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-				</div>
-				<!-- Item 4 -->
-				<div class="hidden duration-700 ease-in-out h-full" data-carousel-item>
-					<img src="{{ asset('images/wine.jpg') }}" alt="Image par défaut" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-				</div>
-			</div>
-			<!-- Slider controls -->
-			<button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-				<span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-					<svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 6 10">
-						<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-					</svg>
-					<span class="sr-only">Previous</span>
-				</span>
-			</button>
-			<button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-				<span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-					<svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 6 10">
-						<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-					</svg>
-					<span class="sr-only">Next</span>
-				</span>
-			</button>
-		</div>
-
-	</header>
-	{% block body %}{% endblock %}
-	<footer class="relative pt-8 pb-6 mt-8">
-		<div class="BlocFooter">
-			<div class="FootRes">
-				<ul>
-					<li><a href="{{ path('app_contact')}}">contact</a></li>
-					<li><a href="#">Galerie</a></li>
-					<li><a href="#">Mentions légal</a></li>
-					<li><a href="#">lorem ipsum</a></li>
-				</ul>
-			</div>
-			<div class="FootLiens"></div>
-			<ul>
-				<li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-				<li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-				<li><a href="#"><i class="fa-solid fa-phone"></i></a></li>
-			</ul>
-		</div>
-	</footer>
-	<script>
-		// Solution 1 : Avec intervalle
-let attempts = 0;
-const maxAttempts = 20;
-
-const hideButton = setInterval(function () {
-const buttons = document.querySelectorAll('button');
-let found = false;
-
-buttons.forEach(button => {
-if (button.textContent.includes('Leave a review') || button.textContent.includes('Laisser un avis')) {
-button.style.display = 'none';
-found = true;
-}
-});
-
-attempts++;
-if (found || attempts >= maxAttempts) {
-clearInterval(hideButton);
-}
-}, 200);
-
-// Solution 2 : Observer plus agressif
-const observer = new MutationObserver(function (mutations) {
-const buttons = document.querySelectorAll('button');
-buttons.forEach(button => {
-if (button.textContent.includes('Leave a review') || button.textContent.includes('Laisser un avis')) {
-button.style.display = 'none';
-}
-});
-});
-
-observer.observe(document.body, {
-childList: true,
-subtree: true,
-attributes: true
-});
-	</script>
-</body></html>
+<body class="bg-gray-50">
+    <!-- NAV BAR -->
+    <header>
+        <nav class="bg-gray-800 border-gray-200">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                <a href="{{ path('app_home') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
+                    <img src="{{ asset('images/logoGnF.jpg') }}" class="h-11" alt="Gift & Fun Logo"/>
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Gift & Fun</span>
+                </a>
+                
+                <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-400 rounded-lg md:hidden hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+                    <span class="sr-only">Ouvrir le menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                    </svg>
+                </button>
+                
+                <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                    <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-gray-800 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
+                        <li>
+                            <a href="{{ path('app_home') }}" class="block py-2 px-3 text-white bg-rose-600 rounded md:bg-transparent md:text-rose-400 md:p-0 hover:text-rose-300" aria-current="page">Accueil</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('app_page_gourmandise') }}" class="block py-2 px-3 text-gray-300 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0">Gourmandises</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('app_papetterie') }}" class="block py-2 px-3 text-gray-300 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0">Papetterie</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('app_page_cadeau') }}" class="block py-2 px-3 text-gray-300 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0">Cadeaux invités</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('app_contact') }}" class="block py-2 px-3 text-gray-300 rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- SLIDER / HERO BANNER -->
+        <div id="controls-carousel" class="relative w-full h-screen" data-carousel="slide">
+            <!-- Carousel wrapper -->
+            <div class="relative h-full overflow-hidden rounded-lg">
+                <!-- Item 1 -->
+                <div class="hidden duration-700 ease-in-out h-full" data-carousel-item>
+                    <img src="{{ asset('images/balloons.jpg') }}" alt="Ballons de fête" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                </div>
+                <!-- Item 2 (Active par défaut) -->
+                <div class="hidden duration-700 ease-in-out h-full" data-carousel-item="active">
+                    <img src="{{ asset('images/cake.jpg') }}" alt="Gâteau d'anniversaire" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                </div>
+                <!-- Item 3 -->
+                <div class="hidden duration-700 ease-in-out h-full" data-carousel-item>
+                    <img src="{{ asset('images/balloons.jpg') }}" alt="Décoration" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                </div>
+                <!-- Item 4 -->
+                <div class="hidden duration-700 ease-in-out h-full" data-carousel-item>
+                    <img src="{{ asset('images/wine.jpg') }}" alt="Vin et célébration" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                </div>
+            </div>
+            
+            <!-- Slider controls -->
+            <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
+                    <svg class="w-4 h-4 text-white rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                    </svg>
+                    <span class="sr-only">Précédent</span>
+                </span>
+            </button>
+            <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
+                    <svg class="w-4 h-4 text-white rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                    </svg>
+                    <span class="sr-only">Suivant</span>
+                </span>
+            </button>
+        </div>
+    </header>
+    
+    <!-- CONTENU PRINCIPAL -->
+    <main>
+        {% block body %}{% endblock %}
+    </main>
+    
+    <!-- FOOTER -->
+    <footer class="relative pt-8 pb-6 mt-8">
+        <div class="BlocFooter">
+            <div class="FootRes">
+                <h3 class="text-lg font-semibold mb-3">Navigation</h3>
+                <ul>
+                    <li><a href="{{ path('app_contact') }}">Contact</a></li>
+                    <li><a href="#">Galerie</a></li>
+                    <li><a href="#">Mentions légales</a></li>
+                    <li><a href="#">À propos</a></li>
+                </ul>
+            </div>
+            <div class="FootLiens">
+                <h3 class="text-lg font-semibold mb-3">Suivez-nous</h3>
+                <ul>
+                    <li><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a></li>
+                    <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="#" aria-label="Téléphone"><i class="fa-solid fa-phone"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </footer>
+    
+    <!-- SCRIPTS -->
+    {% block javascripts %}
+        <script src="https://cdn.jsdelivr.net/npm/flowbite@2.3.0/dist/flowbite.min.js"></script>
+        {% block importmap %}
+            {{ importmap('app') }}
+        {% endblock %}
+    {% endblock %}
+    
+    <!-- Script de réinitialisation du carousel -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Réinitialiser le carousel à chaque chargement de page
+            const carouselElement = document.getElementById('controls-carousel');
+            
+            if (carouselElement) {
+                // Forcer l'affichage de l'item actif
+                const items = carouselElement.querySelectorAll('[data-carousel-item]');
+                items.forEach((item) => {
+                    if (item.getAttribute('data-carousel-item') === 'active') {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+                
+                // Réinitialiser Flowbite carousel si disponible
+                if (typeof Carousel !== 'undefined') {
+                    const itemsArray = Array.from(items).map((item, index) => ({
+                        position: index,
+                        el: item
+                    }));
+                    
+                    const options = {
+                        defaultPosition: Array.from(items).findIndex(item => 
+                            item.getAttribute('data-carousel-item') === 'active'
+                        ),
+                        interval: 10000,
+                        indicators: {
+                            items: []
+                        }
+                    };
+                    
+                    const carousel = new Carousel(carouselElement, itemsArray, options);
+                    carousel.cycle();
+                }
+            }
+        });
+        
+        // Masquer les boutons de review (si widget externe)
+        let attempts = 0;
+        const maxAttempts = 20;
+        
+        const hideReviewButton = setInterval(function() {
+            const buttons = document.querySelectorAll('button');
+            let found = false;
+            
+            buttons.forEach(button => {
+                if (button.textContent.includes('Leave a review') || 
+                    button.textContent.includes('Laisser un avis')) {
+                    button.style.display = 'none';
+                    found = true;
+                }
+            });
+            
+            attempts++;
+            if (found || attempts >= maxAttempts) {
+                clearInterval(hideReviewButton);
+            }
+        }, 200);
+        
+        // Observer pour les éléments ajoutés dynamiquement
+        const observer = new MutationObserver(function(mutations) {
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                if (button.textContent.includes('Leave a review') || 
+                    button.textContent.includes('Laisser un avis')) {
+                    button.style.display = 'none';
+                }
+            });
+        });
+        
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true,
+            attributes: true
+        });
+    </script>
+</body>
+</html>

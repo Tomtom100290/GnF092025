@@ -15,10 +15,12 @@ final class PageCadeauController extends AbstractController
     {
         $produitsCatC = $TypeproduitRepository->findProduitsCadeaux();
         $cadeaux = $pageCadeauRepository->findAll();
+       
 
         return $this->render('pages/page_cadeau/index2.html.twig', [
             'Typeproduits' => $produitsCatC,
             'cadeaux' => $cadeaux,
+            
         ]);
     }
 }

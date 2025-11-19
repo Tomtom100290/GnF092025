@@ -67,4 +67,12 @@ class TypeProduitRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+        public function findAllActifs()
+{
+    return $this->createQueryBuilder('c')
+        ->andWhere('c.topActif = :active')
+        ->setParameter('active', true)
+        ->getQuery()
+        ->getResult();
+}
 }

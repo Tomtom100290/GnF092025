@@ -15,6 +15,14 @@ class PageGourmandiseRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, PageGourmandise::class);
     }
+    public function findAllActifs()
+{
+    return $this->createQueryBuilder('c')
+        ->andWhere('c.topActif = :active')
+        ->setParameter('active', true)
+        ->getQuery()
+        ->getResult();
+}
 
     //    /**
     //     * @return PageGourmandise[] Returns an array of PageGourmandise objects
