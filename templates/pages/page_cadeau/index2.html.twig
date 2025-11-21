@@ -24,22 +24,26 @@
     </div>
 
     <!-- Bloc Produits -->
-    <div class="BlocProduits">
-        <h2>Un large choix de produits à personnaliser</h2>
-        <div class="ProduitList">
-            {% for Typeproduit in Typeproduits %}
-                <div class="cardProd">
-                    <div class="ImgProduit" style="background-image: url('{{ asset('images/' ~ Typeproduit.illustration) }}');"></div>
-                    <div class="cardContent">
-                        <div class="TitreProduit">{{ Typeproduit.libelle }}</div>
-                        <div class="DescripProduit">{{ Typeproduit.description }}</div>
-                        <div class="InfoProduit">
-                            <span class="Prx">{{ Typeproduit.prix }}<strong>€</strong></span>
-                            <button class="voir">Voir</button>
-                        </div>
+<div class="BlocProduits">
+    <h2>Un large choix de produits à personnaliser</h2>
+    <div class="ProduitList">
+        {% for Typeproduit in Typeproduits %}
+            <div class="cardProd">
+                <div class="ImgProduit" style="background-image: url('{{ asset('images/' ~ Typeproduit.illustration) }}');"></div>
+                <div class="cardContent">
+                    <div class="TitreProduit">{{ Typeproduit.libelle }}</div>
+                    <div class="DescripProduit">{{ Typeproduit.description }}</div>
+                    <div class="InfoProduit">
+                        <span class="Prx">{{ Typeproduit.prix }}<strong>€</strong></span>
+                        <button class="voir">Voir</button>
                     </div>
                 </div>
-            {% endfor %}
-        </div>
+            </div>
+        {% else %}
+            <div class="message-vide">
+                <p>Aucun produit à afficher</p>
+            </div>
+        {% endfor %}
     </div>
+</div>
 {% endblock %}
