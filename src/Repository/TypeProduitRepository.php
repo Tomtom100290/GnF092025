@@ -45,6 +45,9 @@ class TypeProduitRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('p')
             ->join('p.fkCategorieProduit', 'c')
             ->where('c.nom = :nom')
+            ->andWhere('p.topActif = :active')
+            ->andWhere('c.topActif = :active')  // Filtre aussi sur la catégorie
+            ->setParameter('active', true)
             ->setParameter('nom', 'Gourmandise')
             ->getQuery()
             ->getResult();
@@ -54,6 +57,9 @@ class TypeProduitRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('p')
             ->join('p.fkCategorieProduit', 'c')
             ->where('c.nom = :nom')
+            ->andWhere('p.topActif = :active')
+            ->andWhere('c.topActif = :active')  // Filtre aussi sur la catégorie
+            ->setParameter('active', true)
             ->setParameter('nom', 'Cadeaux')
             ->getQuery()
             ->getResult();
@@ -63,16 +69,19 @@ class TypeProduitRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('p')
             ->join('p.fkCategorieProduit', 'c')
             ->where('c.nom = :nom')
+            ->andWhere('p.topActif = :active')
+            ->andWhere('c.topActif = :active')  // Filtre aussi sur la catégorie
+            ->setParameter('active', true)
             ->setParameter('nom', 'Papetterie')
             ->getQuery()
             ->getResult();
     }
-        public function findAllActifs()
-{
-    return $this->createQueryBuilder('c')
-        ->andWhere('c.topActif = :active')
-        ->setParameter('active', true)
-        ->getQuery()
-        ->getResult();
-}
+    public function findAllActifs()
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.topActif = :active')
+            ->setParameter('active', true)
+            ->getQuery()
+            ->getResult();
+    }
 }

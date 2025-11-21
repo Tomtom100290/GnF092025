@@ -14,7 +14,7 @@ final class PageGourmandiseController extends AbstractController
     #[Route('/gourmandise', name: 'app_page_gourmandise')]
     public function index(PageGourmandiseRepository $pageGourmandiseRepository, TypeProduitRepository $TypeProduitRepository): Response
     {
-        $produitsCatG = $TypeProduitRepository->findAllActifs();
+        $produitsCatG = $TypeProduitRepository->findProduitsGourmandises();
         $gourmandises = $pageGourmandiseRepository->findAll();
         return $this->render('page_gourmandise/index.html.twig', [
             'Typeproduits' => $produitsCatG,
