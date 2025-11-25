@@ -8,9 +8,14 @@
     <!-- Favicons -->
     <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png">
     
-    <!-- CSS -->
+    <!-- CSS EXTERNE -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    
+    <!-- TAILWIND CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- VOTRE CSS PERSONNALISÉ (doit être chargé APRÈS Tailwind) -->
+    <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
     
     {% block stylesheets %}
     <style>
@@ -18,46 +23,6 @@
         [data-carousel-item="active"] {
             display: block !important;
         }
-        
-        /* Styles du footer */
-		/*
-        .BlocFooter {
-            display: flex;
-            justify-content: space-around;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            padding: 2rem;
-            background-color: #1f2937;
-            color: white;
-        }
-        
-        .FootRes ul, .FootLiens ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .FootRes ul li, .FootLiens ul li {
-            margin: 0.5rem 0;
-        }
-        
-        .FootRes ul li a, .FootLiens ul li a {
-            color: #9ca3af;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .FootRes ul li a:hover, .FootLiens ul li a:hover {
-            color: #fff;
-        }
-        
-        .FootLiens ul {
-            display: flex;
-            gap: 1.5rem;
-        }
-        
-        .FootLiens ul li a i {
-            font-size: 1.5rem;
-        }*/
     </style>
     {% endblock %}
 </head>
@@ -169,7 +134,6 @@
                 </ul>
             </div>
         </div>
-        
     </footer>
     
     <!-- SCRIPTS -->
