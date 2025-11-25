@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -43,6 +44,18 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
+            ->add('roles', ChoiceType::class, [
+                'choices' => [
+                    'Utilisateur' => 'ROLE_USER',
+                    'Administrateur' => 'ROLE_ADMIN',
+                    'Manager' => 'ROLE_MANAGER',
+                ],
+                'expanded' => false, // false = menu déroulant, true = boutons radio
+                'multiple' => false, // false = un seul choix, true = plusieurs choix
+                'label' => 'Rôle',
+                'required' => true,
+                'mapped' => false, // Important : on va gérer manuellement dans le contrôleur
+            ])
         ;
     }
 
@@ -50,6 +63,9 @@ class RegistrationFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
+            'csrf_protection' => true, // Vérifiez que c'est true
+            'csrf_field_name' => '_token',
+            'csrf_token_id' => 'registration_form',
         ]);
     }
 }

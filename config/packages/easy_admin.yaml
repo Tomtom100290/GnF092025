@@ -1,5 +1,7 @@
 easy_admin:
     design:
+        translations:
+            'action.filters': 'Filtres'
         assets:
             css:
                 - 'css/custom_easyadmin.css'

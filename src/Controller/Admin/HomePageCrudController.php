@@ -39,11 +39,20 @@ class HomePageCrudController extends AbstractCrudController
     {
         return $actions
         ->update(Crud::PAGE_INDEX, Action::EDIT, function (Action $action) {
-            return $action->setLabel('Modifier la page'); //Modifie le libellé du bouton Editer
-        })
-       
-           
-            ->disable(Action::DELETE, Action::NEW); // Désactive le bouton Supprimer
+            return $action->setLabel('Modifier la page');}) //Modifie le libellé du bouton Editer  
+        ->update(Crud::PAGE_INDEX, Action::NEW, function (Action $action) {
+            return $action->setLabel('Ajouter une nouvelle page');}) //Modifie le libellé du bouton Editer    
+            
+        /*----------LIMITATION------------*/
+
+        // Afficher le bouton DELETE seulement pour ROLE_ADMIN
+        ->update(Crud::PAGE_INDEX, Action::DELETE, fn(Action $action) => $action->displayIf(fn($entity) => $this->isGranted('ROLE_ADMIN')))
+
+        // Afficher le bouton AJOUTER seulement pour ROLE_ADMIN
+        ->update(Crud::PAGE_INDEX, Action::NEW, fn(Action $action) => $action->displayIf(fn($entity) => $this->isGranted('ROLE_ADMIN')));
+        
+        // Désactive le bouton Supprimer
+        //->disable(Action::DELETE, Action::NEW); 
     }
 
     // Paramettrage de la page , titre par exemple

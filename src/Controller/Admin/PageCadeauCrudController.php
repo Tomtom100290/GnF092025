@@ -57,18 +57,25 @@ class PageCadeauCrudController extends AbstractCrudController
             //->update(Crud::PAGE_EDIT, Action::SAVE_AND_CONTINUE, function (Action $action) {
             //return $action->setLabel('Enregistrer les modifications');})
             // Retirer le bouton Save sur la page EDIT
-            ->remove(Crud::PAGE_EDIT, Action::SAVE_AND_CONTINUE)
+            //->remove(Crud::PAGE_EDIT, Action::SAVE_AND_CONTINUE)
             // Modifier le texte du bouton "Edit"
             ->update(Crud::PAGE_INDEX, Action::EDIT, function (Action $action) {
-                return $action->setLabel('Modifier la Page Cadeau');
+                return $action->setLabel('Modifier la page');
             })
             // Modifier le texte du bouton "Delete"
             ->update(Crud::PAGE_INDEX, Action::DELETE, function (Action $action) {
-                return $action->setLabel('Supprimer le cadeau');
+                return $action->setLabel('Supprimer la page cadeau');
             })
             // Modifier le texte du bouton "New"
             ->update(Crud::PAGE_INDEX, Action::NEW, function (Action $action) {
-                return $action->setLabel('Ajouter un cadeau');
-            });
+                return $action->setLabel('Ajouter une nouvelle page cadeau');
+            })
+
+            /*----LIMITATION-----*/
+            // Afficher le bouton DELETE seulement pour ROLE_ADMIN
+        ->update(Crud::PAGE_INDEX, Action::DELETE, fn(Action $action) => $action->displayIf(fn($entity) => $this->isGranted('ROLE_ADMIN')))
+
+        // Afficher le bouton AJOUTER seulement pour ROLE_ADMIN
+        ->update(Crud::PAGE_INDEX, Action::NEW, fn(Action $action) => $action->displayIf(fn($entity) => $this->isGranted('ROLE_ADMIN')));
     }
 }

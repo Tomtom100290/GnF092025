@@ -26,6 +26,16 @@ class TypeProduitCrudController extends AbstractCrudController
     {
         return TypeProduit::class;
     }
+    //Configure le titre de chaque page ( INDEX, NOUVEAU...,MODIFIER..., DETAILS DU PRODUIT)
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+
+            ->setPageTitle(Crud::PAGE_INDEX, 'Liste des Produits')
+            ->setPageTitle(Crud::PAGE_NEW, 'Nouveau Produit')
+            ->setPageTitle(Crud::PAGE_EDIT, 'Modification du produit')
+            ->setPageTitle(Crud::PAGE_DETAIL, 'Détails du Produit');
+    }
     public function configureActions(Actions $actions): Actions
     {
         // --- Nouveau bouton "Voir" ---
@@ -34,6 +44,10 @@ class TypeProduitCrudController extends AbstractCrudController
             ->addCssClass('btn btn-primary btn-sm'); // bouton bleu
 
         return $actions
+            // Modifier le texte du bouton "Save" sur la page EDIT
+            ->update(Crud::PAGE_EDIT, Action::SAVE_AND_RETURN, function (Action $action) {
+                return $action->setLabel('Enregistrer et retour');
+            })
             ->add(Crud::PAGE_INDEX, $voirProduit)
 
             // Mettre "EDIT" dans les trois petits points
@@ -45,7 +59,10 @@ class TypeProduitCrudController extends AbstractCrudController
             ->update(Crud::PAGE_INDEX, Action::DELETE, function (Action $action) {
                 return $action->setLabel('Supprimer');
             })
-
+            // Modifier le texte du bouton "New"
+            ->update(Crud::PAGE_INDEX, Action::NEW, function (Action $action) {
+                return $action->setLabel('Ajouter un Produit');
+            })
             // Ordre dans la colonne Actions
             ->reorder(Crud::PAGE_INDEX, [
                 'voirClient',

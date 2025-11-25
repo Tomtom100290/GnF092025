@@ -15,12 +15,13 @@
         {% endif %}
 
         <h1 class="">Se connecter</h1>
-        <label for="username">Email</label></form>
+        <label for="username">Email</label>
         <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="email" required autofocus><br>
         <label for="password">Mots de passe</label><br>
         <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required><br>
-        <input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
-
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        
+        
         {#
             Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
             See https://symfony.com/doc/current/security/remember_me.html

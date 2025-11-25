@@ -85,7 +85,7 @@ class DashboardController extends AbstractDashboardController
         // Construction des pages 
         yield MenuItem::section('Paramètre des Pages');
         yield MenuItem::linkToCrud('Page CADEAU', 'fas fa-file', PageCadeau::class);
-        yield MenuItem::linkToCrud('Page PAPETTERIE', 'fas fa-file', Papetterie::class);
+        yield MenuItem::linkToCrud('Page PAPETERIE', 'fas fa-file', Papetterie::class);
         yield MenuItem::linkToCrud('Page GOURMANDISE', 'fas fa-file', PageGourmandise::class);
         yield MenuItem::subMenu('Page d\'accueil', 'fa fa-house')->setSubItems([
             MenuItem::linkToCrud('Présentation', 'fa fa-info-circle', HomePage::class),
