@@ -23,6 +23,14 @@ class SecurityController extends AbstractController
             'error' => $error,
         ]);
     }
+    #[Route('/access-denied', name: 'access_denied')]
+    public function accessDenied()
+    {
+        // Si l'utilisateur n'a pas le bon rôle, on envoie un message d'erreur
+        $this->addFlash('error', 'Vous n\'avez pas l\'autorisation d\'accéder à cette page.');
+        
+        return $this->redirectToRoute('app_login');
+    }
 
     #[Route(path: '/logout', name: 'app_logout')]
     public function logout(): void
