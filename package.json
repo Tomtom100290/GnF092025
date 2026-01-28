@@ -1,0 +1,46 @@
+{
+    "devDependencies": {
+        "@babel/core": "^7.28.6",
+        "@babel/preset-env": "^7.28.6",
+        "@symfony/stimulus-bridge": "^4.0.1",
+        "@symfony/ux-turbo": "^2.32.0",
+        "@symfony/webpack-encore": "^5.3.1",
+        "@vue/compiler-sfc": "^3.5.27",
+        "autoprefixer": "^10.4.23",
+        "babel-loader": "^10.0.0",
+        "core-js": "^3.38.0",
+        "postcss": "^8.5.6",
+        "postcss-loader": "^8.2.0",
+        "regenerator-runtime": "^0.13.9",
+        "tailwindcss": "^4.1.18",
+        "vue": "^3.5.27",
+        "vue-loader": "^17.4.2",
+        "webpack": "^5.104.1",
+        "webpack-cli": "^5.1.4"
+    },
+    "license": "UNLICENSED",
+    "private": true,
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress"
+    },
+    "name": "gnf",
+    "version": "1.0.0",
+    "description": "",
+    "main": "webpack.config.js",
+    "directories": {
+        "test": "tests"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Tomtom100290/GnF092025.git"
+    },
+    "keywords": [],
+    "author": "",
+    "bugs": {
+        "url": "https://github.com/Tomtom100290/GnF092025/issues"
+    },
+    "homepage": "https://github.com/Tomtom100290/GnF092025#readme"
+}

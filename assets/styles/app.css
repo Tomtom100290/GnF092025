@@ -26,10 +26,6 @@ header {
   margin-bottom: 68px;
 }
 
-.NavUl {
-  /* margin-right: 70px;*/
-}
-
 h1 {
   font-size: 3rem !important;
   /* ou 32px */
@@ -248,7 +244,30 @@ p {
 .es-classic-card {
   background-color: aliceblue !important;
 }
+/* Boutons principaux */
+.btn-primary {
+    background: #dda6c8 !important;
+    /* rose */
+    border-color: #e1afdd !important;
+}
 
+/* Hover */
+.btn-primary:hover {
+   background: #dda6c8 !important;
+    border-color: #e1afdd !important;
+    color: white !important;
+}
+
+/* Boutons secondaires */
+.btn-secondary {
+    background-color: #6b7280 !important;
+}
+
+/* Boutons danger (supprimer) */
+.btn-danger {
+    background-color: #352b2b !important;
+    border-color: #f4e4e4 !important;
+}
 /*--FOOTER---*/
 footer li {
   color: #cfb5b5;
@@ -385,7 +404,7 @@ footer {
 
 /* === CARTES PRODUITS === */
 .cardProd {
-  background: rgb(238, 233, 222);
+  background: rgb(227, 229, 231);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
@@ -462,7 +481,7 @@ footer {
 }
 
 .voir {
-  background: linear-gradient(135deg, #d4a574 0%, #c89563 100%);
+  background: #dda6c8;
   color: white;
   border: none;
   padding: 12px 32px;
@@ -472,7 +491,7 @@ footer {
   cursor: pointer;
   transition: all 0.3s ease;
   letter-spacing: 0.5px;
-  box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+  box-shadow: 0 4px 15px rgba(137, 137, 137, 0.3);
 }
 
 .voir:hover {

@@ -17,6 +17,7 @@
 		<script src="https://cdn.tailwindcss.com"></script>
 
 		{% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
 			<style>
 				/* Forcer l'affichage de l'item actif du carousel */
 				[data-carousel-item="active"] {
@@ -130,9 +131,9 @@
 				<div class="FootLiens">
 					<h3 class="text-lg font-semibold mb-3">Suivez-nous</h3>
 					<ul>
-						<li><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a></li>
-						<li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
-						<li><a href="#" aria-label="Téléphone"><i class="fa-solid fa-phone"></i></a></li>
+						<li><a href="https://www.facebook.com/giftandfun974/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a></li>
+						<li><a href="https://www.instagram.com/giftandfun__/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+						<li><a href="tel:+262692773378" aria-label="Instagram"><i class="fa-solid fa-phone"></i></a></li>
 					</ul>
 				</div>
 			</div>
@@ -141,6 +142,7 @@
 
 		<!-- SCRIPTS -->
 		{% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
 			<script src="https://cdn.jsdelivr.net/npm/flowbite@2.3.0/dist/flowbite.min.js"></script>
 			{% block importmap %}
 				{{ importmap('app') }}

@@ -1,0 +1,380 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mentions Légales{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .mentions-legales-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #fdfbfb 0%, #f8f5f2 100%);
+            min-height: 100vh;
+        }
+
+        .decorative-header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .decorative-header::before {
+            content: '✦';
+            display: block;
+            font-size: 2rem;
+            color: #d4a574;
+            margin-bottom: 20px;
+            animation: rotate 4s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 3rem !important;
+            font-weight: bold !important;
+            margin-bottom: 1rem !important;
+            text-align: center;
+            color: #3d3d3d;
+            font-family: 'Georgia', serif;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #d4a574, transparent);
+        }
+
+        h2 {
+            font-size: 2rem !important;
+            font-weight: bold !important;
+            margin-bottom: 0.75rem !important;
+            text-align: center;
+            margin-top: 36px !important;
+            color: #5a5a5a;
+            font-family: 'Georgia', serif;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        h2::before {
+            content: '◆';
+            color: #d4a574;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        h2::after {
+            content: '◆';
+            color: #d4a574;
+            margin-left: 15px;
+            font-size: 1.2rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: 28px;
+            margin-bottom: 16px;
+            color: #6b6b6b;
+            font-family: 'Georgia', serif;
+            border-left: 4px solid #d4a574;
+            padding-left: 15px;
+        }
+
+        p {
+            margin-bottom: 18px;
+            line-height: 1.8;
+            color: #4a4a4a;
+            text-align: justify;
+            font-size: 1.05rem;
+        }
+
+        ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+            list-style-type: none;
+        }
+
+        li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 25px;
+            line-height: 1.7;
+            color: #4a4a4a;
+        }
+
+        li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #d4a574;
+            font-weight: bold;
+        }
+
+        strong {
+            font-weight: 600;
+            color: #2d2d2d;
+        }
+
+        a {
+            color: #b8956a;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #d4a574;
+            border-bottom: 1px solid #d4a574;
+        }
+
+        .info-block {
+            background: linear-gradient(135deg, #f5ecf3 0%, #efd3efff 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 5px 20px rgba(212, 165, 116, 0.1);
+            border: 2px solid #f5e6d3;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-block::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .info-block p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .artistic-separator {
+            text-align: center;
+            margin: 50px 0;
+            font-size: 1.5rem;
+            color: #d4a574;
+            letter-spacing: 10px;
+        }
+
+        .date-update {
+            text-align: center;
+            font-style: italic;
+            color: #8a8a8a;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 2px dashed #e0d5c7;
+            font-size: 0.95rem;
+        }
+
+        .cookies-notice {
+            background: linear-gradient(135deg, #ebd2efff 0%, #efd3efff 100%);
+            border-left: 5px solid #e8c3e6ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .accent-box {
+            background: #fef9f3;
+            border: 2px solid #d4a574;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 3px 15px rgba(212, 165, 116, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            .mentions-legales-container {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 2.2rem !important;
+            }
+
+            h2 {
+                font-size: 1.6rem !important;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            p, li {
+                font-size: 1rem;
+            }
+
+            .info-block {
+                padding: 20px;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="mentions-legales-container">
+        <div class="decorative-header">
+            <h1>Mentions Légales</h1>
+        </div>
+
+        <h2>1. Informations sur l'éditeur du site</h2>
+        
+        <div class="info-block">
+            <p><strong>Raison sociale :</strong> Gift & Fun</p>
+            <p><strong>Forme juridique :</strong> Auto-entreprise</p>
+            <p><strong>Siège social :</strong> 1 rue corne de Cerf, 97460 Saint-Paul</p>
+            <p><strong>Téléphone :</strong> 0692 77 82 71</p>
+            <p><strong>SIRET :</strong> 450 332 374</p>
+            <p><strong>Directeur de publication :</strong>Madame Dafreville Audrey</p>
+        </div>
+
+        <div class="artistic-separator">✦ ✦ ✦</div>
+
+        <h2>2. Hébergement du site</h2>
+        
+        <div class="info-block">
+            <p><strong>Hébergeur :</strong> HOSTINGER INTERNATIONAL LTD </p>
+            <p><strong>Adresse :</strong> 61 Lordou Vironos Street Lumiel Building, 4th floor 6023 Larnaca, Chypre 🇨🇾</p>
+           
+        </div>
+
+        <div class="artistic-separator">✦ ✦ ✦</div>
+
+        <h2>3. Données personnelles</h2>
+
+<h3>3.1 Collecte de données via le formulaire de contact</h3>
+<p>Ce site dispose d'un formulaire de contact qui collecte uniquement les informations suivantes : <strong>nom, prénom, adresse email et message</strong>. Ces données sont collectées dans le seul but de répondre à votre demande et ne sont en aucun cas utilisées à des fins commerciales, publicitaires ou partagées avec des tiers.</p>
+
+<h3>3.2 Durée de conservation</h3>
+<p>Les messages reçus via le formulaire de contact sont conservés uniquement dans la boite de reception des mails de l'entreprise.</p>
+
+<h3>3.3 Vos droits</h3>
+<p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données personnelles. Pour exercer ces droits, vous pouvez nous contacter à l'adresse : <strong>[giftandfun@yahoo.com]</strong></p>
+
+<h3>3.4 Sécurité</h3>
+<p>Les données transmises via le formulaire de contact sont sécurisées et ne sont accessibles que par <strong>La responsable du site internet</strong>. Elles ne font l'objet d'aucun traitement automatisé ni d'aucune analyse commerciale.</p>
+        <div class="artistic-separator">✦ ✦ ✦</div>
+
+        <h2>4. Cookies et données de navigation</h2>
+
+        <div class="cookies-notice">
+            <h3>4.1 Cookies strictement nécessaires</h3>
+            <p>Ce site utilise uniquement les cookies techniques essentiels au fonctionnement du navigateur et du site. Ces cookies ne collectent aucune donnée personnelle et sont automatiquement gérés par votre navigateur.</p>
+
+            <h3>4.2 Types de cookies utilisés</h3>
+            <ul>
+                <li><strong>Cookies de session :</strong> nécessaires pour la navigation sur le site</li>
+                <li><strong>Cookies de préférence :</strong> pour mémoriser vos choix de langue ou d'affichage (si applicable)</li>
+            </ul>
+
+            <h3>4.3 Absence de cookies tiers</h3>
+            <p>Nous n'utilisons :</p>
+            <ul>
+                <li>Aucun cookie de suivi publicitaire</li>
+                <li>Aucun cookie de statistiques (Google Analytics, etc.)</li>
+                <li>Aucun cookie de réseaux sociaux</li>
+                <li>Aucun cookie marketing</li>
+            </ul>
+
+            <h3>4.4 Gestion des cookies</h3>
+            <p>Vous pouvez configurer votre navigateur pour bloquer ou être alerté de la présence de cookies :</p>
+            <ul>
+                <li><strong>Chrome :</strong> Paramètres → Confidentialité et sécurité → Cookies</li>
+                <li><strong>Firefox :</strong> Préférences → Vie privée et sécurité</li>
+                <li><strong>Safari :</strong> Préférences → Confidentialité</li>
+                <li><strong>Edge :</strong> Paramètres → Confidentialité, recherche et services</li>
+            </ul>
+        </div>
+
+        <div class="artistic-separator">✦ ✦ ✦</div>
+
+        <h2>5. Propriété intellectuelle</h2>
+        
+        <p>L'ensemble des créations, photographies, illustrations, textes, logos et graphismes présents sur ce site sont la propriété exclusive de <strong>Gift and fun</strong> et sont protégés par le droit d'auteur français et international.</p>
+        
+        <p>Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans autorisation écrite préalable de la gérante du site internet.</p>
+
+        <div class="accent-box">
+            <p><strong>Nos créations artistiques</strong> sont des œuvres originales protégées. Toute utilisation commerciale ou reproduction sans accord préalable est strictement interdite et passible de poursuites.</p>
+        </div>
+
+        <div class="artistic-separator">✦ ✦ ✦</div>
+
+        <h2>6. Limitation de responsabilité</h2>
+        
+        <p><strong>Gift & Fun</strong> s'efforce de fournir sur ce site des informations aussi précises que possible concernant ses créations décoratives. Toutefois, les couleurs, textures et dimensions affichées peuvent légèrement varier selon votre écran.</p>
+        
+        <p>Nous ne saurions être tenus responsables :</p>
+        <ul>
+            <li>Des interruptions ou dysfonctionnements techniques du site</li>
+            <li>De l'impossibilité momentanée d'accéder au site</li>
+            <li>Des dommages résultant d'une intrusion frauduleuse d'un tiers</li>
+            <li>Des virus pouvant infecter l'équipement informatique des visiteurs</li>
+        </ul>
+
+        <div class="artistic-separator">✦ ✦ ✦</div>
+
+        <h2>7. Liens hypertextes</h2>
+        
+        <p>Ce site peut contenir des liens vers d'autres sites partenaires, inspirations etc. <strong>Gift & Fun</strong> n'exerce aucun contrôle sur ces sites externes et décline toute responsabilité quant à leur contenu, politique de confidentialité ou pratiques.</p>
+
+        <div class="artistic-separator">✦ ✦ ✦</div>
+
+        <h2>8. Droit applicable</h2>
+        
+        <p>Les présentes mentions légales sont régies par le droit français. Tout litige relatif à l'utilisation de ce site sera soumis à la compétence exclusive des tribunaux de <strong>[..................]</strong>.</p>
+
+        <div class="artistic-separator">✦ ✦ ✦</div>
+
+        <h2>9. Crédits</h2>
+        
+        <div class="info-block">
+            <p><strong>Conception et réalisation :</strong> Tom Run</p>
+            <p><strong>Photographies :</strong> Gift & Fun</p>
+            <p><strong>Développement :</strong> Tom Run</p>
+            <p><strong>Design graphique :</strong> Tom Run et Gift & Fun</p>
+        </div>
+
+        <div class="artistic-separator">✦ ✦ ✦</div>
+
+        <h2>10. Contact</h2>
+        
+        <div class="info-block">
+            <p>Pour toute question concernant ces mentions légales ou nos créations :</p>
+            <p><strong>Email :Via le formulaire de contact</p>
+            <p><strong>Téléphone :</strong> 0692 77 82 71</p>
+            <p><strong>Adresse :</strong> 1 rue corne de Cerf, 97460 Saint-Paul</p>
+        </div>
+
+        <div class="date-update">
+            <p>✦</p>
+            <p>Dernière mise à jour : 01/02/2026</strong></p>
+            <p>✦</p>
+        </div>
+    </div>
+{% endblock %}

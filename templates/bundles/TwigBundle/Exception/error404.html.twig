@@ -1,0 +1,151 @@
+{% extends 'baseMin.html.twig' %}
+
+{% block title %}404 - Page introuvable{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .error-container {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #fff5f9 0%, #ffe9f3 100%);
+        }
+
+        .error-content {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            color: #dda6c8;
+            margin: 0;
+            line-height: 1;
+            text-shadow: 3px 3px 0px rgba(221, 166, 200, 0.2);
+        }
+
+        .error-title {
+            font-size: 2.5rem;
+            color: #c87ba8;
+            margin: 20px 0;
+            font-weight: 600;
+        }
+
+        .error-message {
+            font-size: 1.2rem;
+            color: #666;
+            margin: 20px 0 40px;
+            line-height: 1.6;
+        }
+
+        .error-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .btn-home {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #dda6c8;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(221, 166, 200, 0.3);
+        }
+
+        .btn-home:hover {
+            background: #c87ba8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(221, 166, 200, 0.4);
+        }
+
+        .suggestions {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px dashed #dda6c8;
+        }
+
+        .suggestions h3 {
+            color: #c87ba8;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .suggestions ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .suggestions li {
+            margin: 10px 0;
+        }
+
+        .suggestions a {
+            color: #dda6c8;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .suggestions a:hover {
+            color: #c87ba8;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 5rem;
+            }
+
+            .error-title {
+                font-size: 1.8rem;
+            }
+
+            .error-message {
+                font-size: 1rem;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="error-container">
+        <div class="error-content">
+            <div class="error-icon">🌸</div>
+            <h1 class="error-code">404</h1>
+            <h2 class="error-title">Oups ! Cette page s'est envolée...</h2>
+            <p class="error-message">
+                Il semblerait que la page que vous cherchez ait disparu dans notre atelier créatif. 
+                Peut-être a-t-elle été transformée en une jolie décoration ? 🎨
+            </p>
+            <a href="{{ path('app_home') }}" class="btn-home">
+                ← Retour à l'accueil
+            </a>
+
+            <div class="suggestions">
+                <h3>Vous cherchez peut-être :</h3>
+                <ul>
+                    <li><a href="{{ path('app_home') }}">🏠 Notre page d'accueil</a></li>
+                    {# Décommentez selon vos routes
+                    <li><a href="{{ path('app_products') }}">✨ Nos créations</a></li>
+                    <li><a href="{{ path('app_about') }}">💝 À propos de nous</a></li>
+                    <li><a href="{{ path('app_contact') }}">📧 Nous contacter</a></li>
+                    #}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

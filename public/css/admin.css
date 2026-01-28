@@ -1,14 +1,15 @@
 /* Boutons principaux */
 .btn-primary {
-    background-color: #d4a574 !important;
+    background: #dda6c8 !important;
     /* rose */
-    border-color: #d3ad83 !important;
+    border-color: #e1afdd !important;
 }
 
 /* Hover */
 .btn-primary:hover {
-    background-color: #b98b5a !important;
-    border-color: #d8b794 !important;
+   background: #dda6c8 !important;
+    border-color: #e1afdd !important;
+    color: white !important;
 }
 
 /* Boutons secondaires */

@@ -1,0 +1,135 @@
+{% extends 'baseMin.html.twig' %}
+
+{% block title %}500 - Erreur serveur{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .error-container {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #fff5f9 0%, #ffe9f3 100%);
+        }
+
+        .error-content {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            color: #dda6c8;
+            margin: 0;
+            line-height: 1;
+            text-shadow: 3px 3px 0px rgba(221, 166, 200, 0.2);
+        }
+
+        .error-title {
+            font-size: 2.5rem;
+            color: #c87ba8;
+            margin: 20px 0;
+            font-weight: 600;
+        }
+
+        .error-message {
+            font-size: 1.2rem;
+            color: #666;
+            margin: 20px 0 40px;
+            line-height: 1.6;
+        }
+
+        .error-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .btn-home {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #dda6c8;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(221, 166, 200, 0.3);
+            margin: 10px;
+        }
+
+        .btn-home:hover {
+            background: #c87ba8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(221, 166, 200, 0.4);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 15px 40px;
+            background: transparent;
+            color: #dda6c8;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #dda6c8;
+            margin: 10px;
+        }
+
+        .btn-secondary:hover {
+            background: #dda6c8;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 5rem;
+            }
+
+            .error-title {
+                font-size: 1.8rem;
+            }
+
+            .error-message {
+                font-size: 1rem;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="error-container">
+        <div class="error-content">
+            <div class="error-icon">⚙️</div>
+            <h1 class="error-code">500</h1>
+            <h2 class="error-title">Oups ! Une erreur s'est produite</h2>
+            <p class="error-message">
+                Notre atelier est en train de réparer quelque chose... 
+                Nos petites mains créatives travaillent pour résoudre ce problème ! 🔧
+            </p>
+            <p class="error-message" style="font-size: 1rem; color: #999;">
+                Une erreur technique inattendue s'est produite. 
+                Nous avons été notifiés et nous y travaillons.
+            </p>
+            <div>
+                <a href="{{ path('app_home') }}" class="btn-home">
+                    ← Retour à l'accueil
+                </a>
+                <a href="javascript:window.location.reload()" class="btn-secondary">
+                    🔄 Réessayer
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
