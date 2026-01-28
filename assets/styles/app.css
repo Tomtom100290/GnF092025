@@ -380,6 +380,9 @@ footer {
   margin: 0 auto;
 }
 
+/*---PAGE LOGIN---*/
+
+
 /* === CARTES PRODUITS === */
 .cardProd {
   background: rgb(238, 233, 222);
@@ -406,7 +409,11 @@ footer {
 }
 
 .cardProd:hover .ImgProduit {
-  transform: scale(1.08);
+  transform: scale(1.02);
+  -webkit-transform: scale(1.02);
+  -moz-transform: scale(1.02);
+  -ms-transform: scale(1.02);
+  -o-transform: scale(1.02);
 }
 
 .cardContent {
@@ -477,22 +484,28 @@ footer {
 .voir:active {
   transform: translateY(0);
 }
+
 .btn-ajouter {
-    background-color: #28a745 !important; /* vert */
-    color: white;              /* texte blanc */
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
+  background-color: #28a745 !important;
+  /* vert */
+  color: white;
+  /* texte blanc */
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
 }
-.message-vide{
+
+.message-vide {
   width: 90%;
   margin: 0 auto;
 }
-.message-vide p{
+
+.message-vide p {
   font-size: 24px;
   width: 100%;
 }
+
 /* page contact
 :root {
     --primary: #d4a574;
@@ -506,106 +519,111 @@ footer {
 
 /* Structure */
 .contact-container {
-    display: flex;
-    justify-content: center;
-    padding: 40px 20px;
-    background: var(--bg);
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  background: var(--bg);
 }
 
 .contact-card {
-    width: 100%;
-    max-width: 700px;
-    background: white;
-    padding: 40px;
-    border-radius: 14px;
-    box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 700px;
+  background: white;
+  padding: 40px;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
 }
 
 /* Titre */
 .contact-title {
-    margin-bottom: 20px;
-    font-size: 32px;
-    color: var(--text);
-    font-weight: 600;
+  margin-bottom: 20px;
+  font-size: 32px;
+  color: var(--text);
+  font-weight: 600;
 }
 
 /* Flash messages */
 .flash {
-    position: relative;
-    padding: 14px 18px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    color: white;
-    font-size: 15px;
+  position: relative;
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  color: white;
+  font-size: 15px;
 }
 
-.flash-success { background: var(--success); }
-.flash-error { background: var(--error); }
+.flash-success {
+  background: var(--success);
+}
+
+.flash-error {
+  background: var(--error);
+}
 
 .flash-close {
-    position: absolute;
-    top: 8px;
-    right: 12px;
-    cursor: pointer;
-    font-size: 20px;
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  cursor: pointer;
+  font-size: 20px;
 }
 
 /* Formulaire */
 .form-group {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .form-label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 6px;
-    color: var(--text);
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text);
 }
 
 .form-input,
 .form-textarea {
-    width: 100%;
-    padding: 12px 14px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-    outline: none;
-    transition: 0.2s;
-    background: #fff;
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  outline: none;
+  transition: 0.2s;
+  background: #fff;
 }
 
 .form-input:focus,
 .form-textarea:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 2px rgba(212,165,116,0.25);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(212, 165, 116, 0.25);
 }
 
 .form-textarea {
-    min-height: 130px;
-    resize: vertical;
+  min-height: 130px;
+  resize: vertical;
 }
 
 .form-button {
-    width: 100%;
-    background: var(--primary);
-    color: rgb(101, 100, 114);
-    padding: 14px;
-    border: none;
-    cursor: pointer;
-    font-size: 17px;
-    border-radius: 8px;
-    background-color: rgb(201, 177, 100);
-    transition-duration: 2ss;
-   
+  width: 100%;
+  background: var(--primary);
+  color: rgb(101, 100, 114);
+  padding: 14px;
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+  border-radius: 8px;
+  background-color: rgb(203, 114, 169);
+  transition-duration: 2ss;
+
 }
 
 .form-button:hover {
-    background-color: #555;
-    color: #d4a574;
+  background-color: #555;
+  color: #d4a574;
 }
 
 .form-button:active {
-    transform: scale(0.98);
+  transform: scale(0.98);
 }
 
 /* === RESPONSIVE === */
@@ -674,6 +692,7 @@ footer {
 
   .ImgEnt p {
     font-size: 1rem;
+
   }
 
   .cardContent {
@@ -693,4 +712,20 @@ footer {
   .voir {
     width: 100%;
   }
+}
+
+/****détails produit***/
+.cardProdDetail {
+  width: 90%;
+  max-width: 1200px;
+  margin: 80px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding: 0 20px;
+  background: rgb(208, 198, 198);
+  padding: 40px;
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+
 }

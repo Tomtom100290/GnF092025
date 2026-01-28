@@ -20,6 +20,7 @@ class PageCadeauCrudController extends AbstractCrudController
         return PageCadeau::class;
     }
 
+
     //Configure le tableau et ses champs à afficher
     public function configureFields(string $pageName): iterable
     {
@@ -39,10 +40,10 @@ class PageCadeauCrudController extends AbstractCrudController
     {
         return $crud
 
-            ->setPageTitle(Crud::PAGE_INDEX, 'Gestion de la Page Cadeaux')
+            ->setPageTitle(Crud::PAGE_INDEX, 'Page Cadeaux')
             ->setPageTitle(Crud::PAGE_NEW, 'Nouvelle page')
-            ->setPageTitle(Crud::PAGE_EDIT, 'Modification Page Cadeaux')
-            ->setPageTitle(Crud::PAGE_DETAIL, 'Détails de la Page Cadeaux');
+            ->setPageTitle(Crud::PAGE_EDIT, 'Modification')
+            ->setPageTitle(Crud::PAGE_DETAIL, 'Détail produit ');
     }
 
     //Configure le label des bouton EDIT, DELETE, NEW...

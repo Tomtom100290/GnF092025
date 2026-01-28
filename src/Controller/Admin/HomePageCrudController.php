@@ -23,7 +23,7 @@ class HomePageCrudController extends AbstractCrudController
         return HomePage::class;
     }
 
-    
+
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -38,22 +38,21 @@ class HomePageCrudController extends AbstractCrudController
     public function configureActions(Actions $actions): Actions
     {
         return $actions
-        ->update(Crud::PAGE_INDEX, Action::EDIT, function (Action $action) {
-            return $action->setLabel('Modifier la page'); //Modifie le libellé du bouton Editer
-        })
-       
-           
+            ->update(Crud::PAGE_INDEX, Action::EDIT, function (Action $action) {
+                return $action->setLabel('Modifier la page'); //Modifie le libellé du bouton Editer
+            })
+
+
             ->disable(Action::DELETE, Action::NEW); // Désactive le bouton Supprimer
     }
 
     // Paramettrage de la page , titre par exemple
     public function configureCrud(Crud $crud): Crud
-{
-    return $crud
-    //Parametrage de l'affichage listing, edition, details
-        ->setPageTitle(Crud::PAGE_INDEX, 'Parametrage entête page d\'Accueil')      // titre de la page listing
-        ->setPageTitle(Crud::PAGE_EDIT, 'Modifier l\'entête') // titre de la page édition
-        ->setPageTitle(Crud::PAGE_DETAIL, 'Détail de l\'entête'); // si tu as activé la vue détail
-}
-    
+    {
+        return $crud
+            //Parametrage de l'affichage listing, edition, details
+            ->setPageTitle(Crud::PAGE_INDEX, 'Parametrage entête page d\'Accueil')      // titre de la page listing
+            ->setPageTitle(Crud::PAGE_EDIT, 'Modification') // titre de la page édition
+            ->setPageTitle(Crud::PAGE_DETAIL, 'Détail de l\'entête'); // si tu as activé la vue détail
+    }
 }

@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Personnalisation papeterie à La Réunion 974{% endblock %}
+{% block title %}Personnalisation papeterie à La Réunion 974
+{% endblock %}
 
 {% block body %}
-{% block anim %}Papetterie
-	{% endblock %}
+	{% block anim %}{% endblock %}
 	<!-- Entête-->
 	<div class="Entete">
 		<div class="paraEnt">
@@ -23,9 +23,9 @@
 				<div class="ImgL" style="background-image: url('{{ asset('images/' ~ papetterie.img) }}');"></div>
 			{% endfor %}
 			<!--<div class="ImgBC">
-						                <div class="ImgB">img B</div>
-						                <div class="ImgC">img C</div>
-						            </div>-->
+												                <div class="ImgB">img B</div>
+												                <div class="ImgC">img C</div>
+												            </div>-->
 		</div>
 	</div>
 	<!---->
@@ -43,7 +43,9 @@
 						<span class="Prx">{{ Typeproduit.prix }}<strong>
 								€</strong>
 						</span>
-						<button class="voir">Voir</button>
+						<a href="{{ path('app_page_gourmandise_detail', {'id': Typeproduit.id}) }}" class="voir">
+							Voir
+						</a>
 					</div>
 				</div>
 			{% endfor %}

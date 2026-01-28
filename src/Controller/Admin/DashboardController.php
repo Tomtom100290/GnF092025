@@ -10,12 +10,16 @@ use App\Entity\PageCadeau;
 use App\Entity\PageGourmandise;
 use App\Entity\Papetterie;
 use App\Entity\TypeProduit;
+use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Attribute\AdminDashboard;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Component\HttpFoundation\Response;
+
 
 #[AdminDashboard(routePath: '/admin', routeName: 'admin')]
 class DashboardController extends AbstractDashboardController
@@ -44,11 +48,17 @@ class DashboardController extends AbstractDashboardController
         //
         // return $this->render('some/path/my-dashboard.html.twig');
     }
+    // personnalisation css de easyadmin
+    public function configureAssets(): Assets
+    {
+        return Assets::new()
+            ->addCssFile('css/admin.css');
+    }
 
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Gift & Fun');
+            ->setTitle('<img src="/images/logognf.jpg" alt="Gift & Fun" style="height:60px;">');
     }
 
     public function configureMenuItems(): iterable
@@ -85,12 +95,15 @@ class DashboardController extends AbstractDashboardController
         // Construction des pages 
         yield MenuItem::section('Paramètre des Pages');
         yield MenuItem::linkToCrud('Page CADEAU', 'fas fa-file', PageCadeau::class);
-        yield MenuItem::linkToCrud('Page PAPETTERIE', 'fas fa-file', Papetterie::class);
+        yield MenuItem::linkToCrud('Page PAPETERIE', 'fas fa-file', Papetterie::class);
         yield MenuItem::linkToCrud('Page GOURMANDISE', 'fas fa-file', PageGourmandise::class);
         yield MenuItem::subMenu('Page d\'accueil', 'fa fa-house')->setSubItems([
             MenuItem::linkToCrud('Présentation', 'fa fa-info-circle', HomePage::class),
             MenuItem::linkToCrud('Best Sellers', 'fa fa-star', BestSellers::class),
         ]);
+        yield MenuItem::section('Gestion utilisateur');
+
+        yield MenuItem::linkToRoute('Créer un nouvel Utilisateur', 'fa-solid fa-user', 'app_register');
         yield MenuItem::section('Visualisation');
         yield MenuItem::linkToRoute('Aller au site Web', 'fas fa-solid fa-pager', 'app_home');
     }

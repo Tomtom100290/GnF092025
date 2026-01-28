@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ Typeproduit.libelle }}
+	- Détail
+{% endblock %}
+
+{% block body %}
+	<h1>{{ Typeproduit.libelle }}</h1>
+
+	<div class="cardProdDetail">
+		{% if Typeproduit.illustration %}
+			<div class="ImgProduit" style="background-image: url('{{ asset('images/' ~ Typeproduit.illustration) }}');"></div>
+		{% endif %}
+		{% if Typeproduit.description %}
+			<p>
+				<strong>Description :</strong>
+				{{ Typeproduit.description }}</p>
+		{% endif %}
+		<p>
+			<strong>Prix :</strong>
+			{{ Typeproduit.prix }}
+			€</p>
+	</div>
+	<a href="{{ path('app_page_gourmandise') }}" class="voir" style="margin:40px;">Retour aux gourmandises</a>
+{% endblock %}

@@ -8,7 +8,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich; 
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 #[ORM\HasLifecycleCallbacks]
 #[ORM\Entity(repositoryClass: TypeProduitRepository::class)]
 #[Vich\Uploadable]
@@ -25,21 +26,11 @@ class TypeProduit
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
-    //#[ORM\Column(type: Types::DATE_MUTABLE)]
-    //private ?\DateTime $dateAchat = null;
-
-    //#[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
-    //private ?\DateTime $dlc = null;
-
-
-    //#[ORM\Column(length: 100)]
-    //private ?string $NumLot = null;
-
-
     #[ORM\Column(type: Types::DATE_IMMUTABLE)]
     private ?\DateTimeImmutable $dateCreation = null;
+
     #[ORM\PrePersist]
-     public function setDateDeCreation(): void
+    public function setDateDeCreation(): void
     {
         if ($this->dateCreation === null) {
             $this->dateCreation = new \DateTimeImmutable();
@@ -67,11 +58,19 @@ class TypeProduit
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $illustration = null;
 
+    // AJOUT : Propriété updatedAt manquante pour VichUploader
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: true)]
+    private ?\DateTimeImmutable $updatedAt = null;
+
+    // AJOUT : Propriété imageFile pour VichUploader
+    #[Vich\UploadableField(mapping: 'typeproduit_images', fileNameProperty: 'illustration')]
+    private ?File $imageFile = null;
+
     public function __construct()
     {
         $this->fkTagProduit = new ArrayCollection();
     }
-   
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,7 +84,6 @@ class TypeProduit
     public function setLibelle(string $libelle): static
     {
         $this->libelle = $libelle;
-
         return $this;
     }
 
@@ -97,48 +95,9 @@ class TypeProduit
     public function setDescription(string $description): static
     {
         $this->description = $description;
-
         return $this;
     }
 
-    /*public function getDateAchat(): ?\DateTime
-    {
-        return $this->dateAchat;
-    }
-
-    public function setDateAchat(\DateTime $dateAchat): static
-    {
-        $this->dateAchat = $dateAchat;
-
-        return $this;
-    }
-
-    public function getDlc(): ?\DateTime
-    {
-        return $this->dlc;
-    }
-
-    public function setDlc(?\DateTime $dlc): static
-    {
-        $this->dlc = $dlc;
-
-        return $this;
-    }
-
-
-    public function getNumLot(): ?string
-    {
-        return $this->NumLot;
-    }
-
-    public function setNumLot(string $NumLot): static
-    {
-        $this->NumLot = $NumLot;
-
-        return $this;
-    }
-*/
-    
     public function getDateCreation(): ?\DateTimeImmutable
     {
         return $this->dateCreation;
@@ -147,7 +106,6 @@ class TypeProduit
     public function setDateCreation(\DateTimeImmutable $dateCreation): static
     {
         $this->dateCreation = $dateCreation;
-
         return $this;
     }
 
@@ -159,7 +117,6 @@ class TypeProduit
     public function setTopActif(bool $topActif): static
     {
         $this->topActif = $topActif;
-
         return $this;
     }
 
@@ -171,7 +128,6 @@ class TypeProduit
     public function setFkCategorieProduit(?categorie $fkCategorieProduit): static
     {
         $this->fkCategorieProduit = $fkCategorieProduit;
-
         return $this;
     }
 
@@ -188,14 +144,12 @@ class TypeProduit
         if (!$this->fkTagProduit->contains($fkTagProduit)) {
             $this->fkTagProduit->add($fkTagProduit);
         }
-
         return $this;
     }
 
     public function removeFkTagProduit(tag $fkTagProduit): static
     {
         $this->fkTagProduit->removeElement($fkTagProduit);
-
         return $this;
     }
 
@@ -207,48 +161,64 @@ class TypeProduit
     public function setSlug(string $slug): static
     {
         $this->slug = $slug;
-
         return $this;
     }
-    // Vich ------------
-    #[Vich\UploadableField(mapping: 'typeproduit_images', fileNameProperty: 'illustration')]
-    private ?File $imageFile = null;
 
-    public function setImageFile(?File $imageFile = null): void
+    public function getPrix(): ?float
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(?float $prix): static
+    {
+        $this->prix = $prix;
+        return $this;
+    }
+
+    // ============================================
+    // MÉTHODES VICH UPLOADER - MODIFIÉES
+    // ============================================
+
+    public function getIllustration(): ?string
+    {
+        return $this->illustration;
+    }
+
+    // CORRECTION : Accepter null pour ne pas écraser l'image existante
+    public function setIllustration(?string $illustration): static
+    {
+        // Ne pas écraser l'image existante si la nouvelle valeur est null ou vide
+        if ($illustration !== null && $illustration !== '') {
+            $this->illustration = $illustration;
+        }
+        return $this;
+    }
+
+    public function setImageFile(?File $imageFile = null): self
     {
         $this->imageFile = $imageFile;
 
-        // Cela force Doctrine à enregistrer une mise à jour si un nouveau fichier est uploadé
-        if ($imageFile !== null) {
-            $this->dateCreation = new \DateTimeImmutable();
+        if ($imageFile) {
+            // Force Doctrine à détecter le changement
+            $this->updatedAt = new \DateTimeImmutable();
         }
+
+        return $this;
     }
 
     public function getImageFile(): ?File
     {
         return $this->imageFile;
     }
-    public function getIllustration(): ?string
+
+    public function getUpdatedAt(): ?\DateTimeImmutable
     {
-        return $this->illustration;
+        return $this->updatedAt;
     }
 
-    public function setIllustration(string $illustration): static
+    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): self
     {
-        $this->illustration = $illustration;
-
+        $this->updatedAt = $updatedAt;
         return $this;
     }
-
-   public function getPrix(): ?float
-   {
-       return $this->prix;
-   }
-
-   public function setPrix(?float $prix): static
-   {
-       $this->prix = $prix;
-
-       return $this;
-   }
 }

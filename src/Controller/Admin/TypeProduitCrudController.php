@@ -69,7 +69,9 @@ class TypeProduitCrudController extends AbstractCrudController
             TextField::new('Libelle'),
             TextField::new('slug'),
             TextareaField::new('Description'),
-            MoneyField::new('prix')->setCurrency('EUR'),
+            MoneyField::new('prix')->setCurrency('EUR')
+                ->setStoredAsCents(false)
+                ->setNumDecimals(2),
             //DateField::new('DateAchat')->setLabel('Date d\'achat'),
             //DateField::new('Dlc')->setLabel('DLC'),
             //TextField::new('NumLot')->setLabel('Numéro de lot'),

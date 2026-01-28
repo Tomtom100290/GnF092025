@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\TypeProduit;
 use App\Repository\PageCadeauRepository;
 use App\Repository\PageGourmandiseRepository;
 use App\Repository\TypeProduitRepository;
@@ -19,6 +20,14 @@ final class PageGourmandiseController extends AbstractController
         return $this->render('page_gourmandise/index.html.twig', [
             'Typeproduits' => $produitsCatG,
             'gourmandises' => $gourmandises,
+        ]);
+    }
+    #[Route('/gourmandise/{id}', name: 'app_page_gourmandise_detail', methods: ['GET'])]
+    public function detail(TypeProduit $Typeproduit): Response
+    {
+        // $Typeproduit est injecté automatiquement grâce au ParamConverter
+        return $this->render('page_gourmandise/detail.html.twig', [
+            'Typeproduit' => $Typeproduit,
         ]);
     }
 }

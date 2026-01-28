@@ -23,7 +23,7 @@ class HomePage
     #[ORM\Column(type: Types::TEXT)]
     private ?string $paragraphe = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private ?string $img = null;
 
     public function getId(): ?int

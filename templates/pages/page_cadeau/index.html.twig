@@ -24,9 +24,9 @@
 				<div class="ImgL" style="background-image: url('{{ asset('images/' ~ cadeau.img) }}');"></div>
 			{% endfor %}
 			<!--<div class="ImgBC">
-			                <div class="ImgB">img B</div>
-			                <div class="ImgC">img C</div>
-			            </div>-->
+						                <div class="ImgB">img B</div>
+						                <div class="ImgC">img C</div>
+						            </div>-->
 		</div>
 	</div>
 	<!---->
@@ -44,7 +44,9 @@
 						<span class="Prx">{{ Typeproduit.prix }}<strong>
 								€</strong>
 						</span>
-						<button class="voir">Voir</button>
+						<a href="{{ path('app_page_gourmandise_detail', {'id': Typeproduit.id}) }}" class="voir">
+							Voir
+						</a>
 					</div>
 				</div>
 			{% endfor %}

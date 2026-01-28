@@ -1,38 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Connexion</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
 
+			body {
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+				background-image: linear-gradient(to right top, #bcaa6a, #cd9166, #d27974, #c26a8e, #9b67a6);
+				min-height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 20px;
+			}
 
-{% block title %}Se connecter{% endblock %}
+			.login-container {
+				background: white;
+				border-radius: 16px;
+				box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+				padding: 40px;
+				width: 100%;
+				max-width: 420px;
+			}
 
-{% block body %}
-    <form method="post">
-        {% if error %}
-            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
+			h1 {
+				color: #2d3748;
+				font-size: 28px;
+				font-weight: 700;
+				margin-bottom: 32px;
+				text-align: center;
+			}
 
-        {% if app.user %}
-            <div class="mb-3">
-                Vous êtes logger en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se déconnecté</a>
-            </div>
-        {% endif %}
+			.form-group {
+				margin-bottom: 24px;
+			}
 
-        <h1 class="">Se connecter</h1>
-        <label for="username">Email</label></form>
-        <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="email" required autofocus><br>
-        <label for="password">Mots de passe</label><br>
-        <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required><br>
-        <input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
+			label {
+				display: block;
+				color: #4a5568;
+				font-size: 14px;
+				font-weight: 600;
+				margin-bottom: 8px;
+			}
 
-        {#
-            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-            See https://symfony.com/doc/current/security/remember_me.html
+			input[type="email"],
+			input[type="password"] {
+				width: 100%;
+				padding: 12px 16px;
+				border: 2px solid #e2e8f0;
+				border-radius: 8px;
+				font-size: 15px;
+				transition: all 0.3s ease;
+				outline: none;
+			}
 
-            <div class="checkbox mb-3">
-                <input type="checkbox" name="_remember_me" id="_remember_me">
-                <label for="_remember_me">Remember me</label>
-            </div>
-        #}
+			input[type="email"]:focus,
+			input[type="password"]:focus {
+				border-color: #667eea;
+				box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+			}
 
-        <button class="btn btn-lg btn-primary" type="submit">
-            Se connecter
-        </button>
-    </form>
-{% endblock %}
+			.btn-primary {
+				width: 100%;
+				padding: 14px;
+				background-color: #d4a574;
+				color: white;
+				border: none;
+				border-radius: 8px;
+				font-size: 16px;
+				font-weight: 600;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				margin-top: 8px;
+			}
+
+			.btn-primary:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+			}
+
+			.btn-primary:active {
+				transform: translateY(0);
+			}
+
+			.register-link {
+				display: block;
+				text-align: center;
+				margin-top: 24px;
+				color: #667eea;
+				text-decoration: none;
+				font-size: 14px;
+				font-weight: 500;
+				transition: color 0.3s ease;
+			}
+
+			.register-link:hover {
+				color: #764ba2;
+				text-decoration: underline;
+			}
+			.liens {
+				color: #d4a574;
+				display: block;
+				text-align: center;
+				margin: 4px auto;
+			}
+			.logoLogin {
+				width: 180px;
+				height: auto;
+				display: block;
+				margin: 8px auto;
+			}
+			.form-group input {
+				border: 0.5px solid #d4a574;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div class="login-container">
+			<img class="logoLogin" src="{{ asset('images/logognf.jpg') }}" class="h-11" alt="Gift & Fun Logo"/>
+			<h1>Se connecter</h1>
+			<form method="post">
+				<div class="form-group">
+					<label for="username">Email</label>
+					<input type="email" value="{{ last_username }}" name="_username" id="username" autocomplete="email" required autofocus>
+				</div>
+
+				<div class="form-group">
+					<label for="password">Mot de passe</label>
+					<input type="password" name="_password" id="password" autocomplete="current-password" required>
+				</div>
+
+				<input type="hidden" name="_csrf_token" data-controller="csrf-protection" value="{{ csrf_token('authenticate') }}">
+
+				<button class="btn-primary" type="submit">
+					Se connecter
+				</button>
+			</form>
+
+			<a href="{{ path('app_register') }}" class="liens">Créer un compte</a>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+/* Boutons principaux */
+.btn-primary {
+    background-color: #d4a574 !important;
+    /* rose */
+    border-color: #d3ad83 !important;
+}
+
+/* Hover */
+.btn-primary:hover {
+    background-color: #b98b5a !important;
+    border-color: #d8b794 !important;
+}
+
+/* Boutons secondaires */
+.btn-secondary {
+    background-color: #6b7280 !important;
+}
+
+/* Boutons danger (supprimer) */
+.btn-danger {
+    background-color: #352b2b !important;
+    border-color: #f4e4e4 !important;
+}
