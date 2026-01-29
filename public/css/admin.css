@@ -7,9 +7,10 @@
 
 /* Hover */
 .btn-primary:hover {
-   background: #dda6c8 !important;
+   background: #e9e6e8 !important;
     border-color: #e1afdd !important;
-    color: white !important;
+    color: #dda6c8  !important;
+    box-shadow: rgba(193, 193, 202, 0.399);
 }
 
 /* Boutons secondaires */

@@ -41,9 +41,30 @@ class TypeProduitCrudController extends AbstractCrudController
                 return $action->setLabel('Modifier');
             })
 
-            // Même chose pour DELETE si tu veux
+            // Même chose pour DELETE 
             ->update(Crud::PAGE_INDEX, Action::DELETE, function (Action $action) {
                 return $action->setLabel('Supprimer');
+            })
+             // Modifier le texte du bouton "Save" sur la page EDIT
+            ->update(Crud::PAGE_EDIT, Action::SAVE_AND_RETURN, function (Action $action) {
+                return $action->setLabel('Enregistrer et retour');
+            })
+            // Modifier le texte du bouton "Save" sur la page EDIT
+            //->update(Crud::PAGE_EDIT, Action::SAVE_AND_CONTINUE, function (Action $action) {
+            //return $action->setLabel('Enregistrer les modifications');})
+            // Retirer le bouton Save sur la page EDIT
+            ->remove(Crud::PAGE_EDIT, Action::SAVE_AND_CONTINUE)
+            // Modifier le texte du bouton "Edit"
+            ->update(Crud::PAGE_INDEX, Action::EDIT, function (Action $action) {
+                return $action->setLabel('Modifier la Page Produit');
+            })
+            // Modifier le texte du bouton "Delete"
+            ->update(Crud::PAGE_INDEX, Action::DELETE, function (Action $action) {
+                return $action->setLabel('Supprimer le produit');
+            })
+            // Modifier le texte du bouton "New"
+            ->update(Crud::PAGE_INDEX, Action::NEW, function (Action $action) {
+                return $action->setLabel('Ajouter un produit');
             })
 
             // Ordre dans la colonne Actions
@@ -91,4 +112,5 @@ class TypeProduitCrudController extends AbstractCrudController
                 ->onlyOnIndex(), // Pour voir le contenu de la colonne
         ];
     }
+    
 }

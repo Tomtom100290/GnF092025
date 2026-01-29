@@ -12,6 +12,8 @@ use App\Entity\Papetterie;
 use App\Entity\TypeProduit;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Attribute\AdminDashboard;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -107,4 +109,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Visualisation');
         yield MenuItem::linkToRoute('Aller au site Web', 'fas fa-solid fa-pager', 'app_home');
     }
+    //Configure le label des bouton EDIT, DELETE, NEW...
+   
 }
