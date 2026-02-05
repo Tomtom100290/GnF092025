@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\PageGourmandise;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
@@ -38,5 +40,31 @@ class PageGourmandiseCrudController extends AbstractCrudController
                 ->setUploadDir('assets/images/'),
 
         ];
+    }
+    //Configure le label des bouton EDIT, DELETE, NEW...
+    public function configureActions(Actions $actions): Actions
+    {
+        return $actions
+            // Modifier le texte du bouton "Save" sur la page EDIT
+            ->update(Crud::PAGE_EDIT, Action::SAVE_AND_RETURN, function (Action $action) {
+                return $action->setLabel('Enregistrer et retour');
+            })
+            // Modifier le texte du bouton "Save" sur la page EDIT
+            //->update(Crud::PAGE_EDIT, Action::SAVE_AND_CONTINUE, function (Action $action) {
+            //return $action->setLabel('Enregistrer les modifications');})
+            // Retirer le bouton Save sur la page EDIT
+            ->remove(Crud::PAGE_EDIT, Action::SAVE_AND_CONTINUE)
+            // Modifier le texte du bouton "Edit"
+            ->update(Crud::PAGE_INDEX, Action::EDIT, function (Action $action) {
+                return $action->setLabel('Modifier la Page Gourmandise');
+            })
+            // Modifier le texte du bouton "Delete"
+            ->update(Crud::PAGE_INDEX, Action::DELETE, function (Action $action) {
+                return $action->setLabel('Supprimer le produit');
+            })
+            // Modifier le texte du bouton "New"
+            ->update(Crud::PAGE_INDEX, Action::NEW, function (Action $action) {
+                return $action->setLabel('Ajouter un produit');
+            });
     }
 }
