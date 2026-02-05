@@ -41,7 +41,7 @@ class TypeProduit
     private ?bool $topActif = null;
 
     #[ORM\ManyToOne(inversedBy: 'Typeproduits')]
-    private ?categorie $fkCategorieProduit = null;
+    private ?Categorie $fkCategorieProduit = null;
 
     /**
      * @var Collection<int, Tag>
@@ -120,12 +120,12 @@ class TypeProduit
         return $this;
     }
 
-    public function getFkCategorieProduit(): ?categorie
+    public function getFkCategorieProduit(): ?Categorie
     {
         return $this->fkCategorieProduit;
     }
 
-    public function setFkCategorieProduit(?categorie $fkCategorieProduit): static
+    public function setFkCategorieProduit(?Categorie $fkCategorieProduit): static
     {
         $this->fkCategorieProduit = $fkCategorieProduit;
         return $this;
